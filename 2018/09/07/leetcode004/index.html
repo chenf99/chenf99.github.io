@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="chenf99 blog">
 <meta property="og:description" content="题目Median of  Two  Sorted  Arrays  There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T13:56:42.914Z">
+<meta property="og:updated_time" content="2018-09-07T13:58:01.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode004">
 <meta name="twitter:description" content="题目Median of  Two  Sorted  Arrays  There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m">
@@ -375,7 +375,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">nums2 = [<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">The median is <span class="number">2.0</span></span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="function">The median <span class="title">is</span> <span class="params">(<span class="number">2</span> + <span class="number">3</span>)</span>/2 </span>= <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个题目的意思是给出两个已排好序的数组，要求我们给出包含两个数组中所有数的中位数。我首先想到的方法是利用两个循环变量 i， j 来同时遍历这两个数组 nums1、nums2 ，当 nums1[i] &lt; nums2[j]时 i++ ，否则 j++ ，并且选出小的那个数，直到总共遍历了 (m + n) / 2 个元素，有点类似于合并两个有序链表的算法。此时就可以找到中位数了：</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个题目的意思是给出两个已排好序的数组，要求我们给出包含两个数组中所有数的中位数。我首先想到的方法是利用两个循环变量<code>i， j</code>来同时遍历这两个数组 nums1、nums2 ，当 nums1[i] &lt; nums2[j]时 i++ ，否则 j++ ，并且选出小的那个数，直到总共遍历了 (m + n) / 2 个元素，有点类似于合并两个有序链表的算法。此时就可以找到中位数了：</p>
 <ol>
 <li>如果总数是奇数，那么中位数就是最后一个选出来的数</li>
 <li>如果总数是偶数，那么中位数就是最后两个选出来的数的平均数</li>
