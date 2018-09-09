@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/leetcode031/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/leetcode-031/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chenf99">
@@ -280,7 +280,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/09/leetcode031/" itemprop="url">leetcode031</a></h1>
+                <a class="post-title-link" href="/2018/09/09/leetcode-031/" itemprop="url">leetcode-031</a></h1>
         
 
         <div class="post-meta">
@@ -362,7 +362,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/09/leetcode031/#more" rel="contents">
+            <a class="btn" href="/2018/09/09/leetcode-031/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -413,7 +413,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/centosOnCloud/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/centos-安装配置私有云/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chenf99">
@@ -432,7 +432,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/09/centosOnCloud/" itemprop="url">centosOnCloud</a></h1>
+                <a class="post-title-link" href="/2018/09/09/centos-安装配置私有云/" itemprop="url">VirtualBox + CentOS让PC提供云服务</a></h1>
         
 
         <div class="post-meta">
@@ -506,8 +506,26 @@
       
         
           
-            <p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180909/cd7f32LL7m.png?imageslim" alt="mark"></p>
-
+            <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><h4 id="安装Git客户端"><a href="#安装Git客户端" class="headerlink" title="安装Git客户端"></a>安装Git客户端</h4><p>直接百度<code>git for windows</code>即可找到<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">官网</a>的下载链接，安装好对应系统版本后应在任何地方右键鼠标都会出现<code>git bash here</code>：</p>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180909/bg3cJ8dJ4E.png?imageslim" alt="mark"></p>
+<h4 id="安装VirtualBox"><a href="#安装VirtualBox" class="headerlink" title="安装VirtualBox"></a>安装VirtualBox</h4><p>直接到<a href="https://www.virtualbox.org/" target="_blank" rel="noopener">官网</a>下载最新版本的安装包并安装，在Downloads界面选择windows版本的：</p>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180909/dA2c7Bgg8e.png?imageslim" alt="mark"></p>
+<h4 id="配置VirtualBox"><a href="#配置VirtualBox" class="headerlink" title="配置VirtualBox"></a>配置VirtualBox</h4><ol>
+<li><p>点击管理-&gt;全局设定-&gt;常规，设置默认虚拟电脑界面，最好把默认的C盘路径改掉，方便自己查找，同时也不消耗系统盘空间。</p>
+</li>
+<li><p>创建虚拟机内部虚拟网络，使得 Vbox 内部虚拟机可以通过它，实现虚拟机之间、虚拟机与主机的通讯：</p>
+<ul>
+<li><p>管理-&gt;主机网络管理器-&gt;创建，创建一块虚拟网卡，并把IPv4地址设为：192.168.100.1/24，这是虚拟内部网络host的默认地址<img src="http://peo1cra6j.bkt.clouddn.com/blog/180909/cD4kb7JhjF.png?imageslim" alt="mark"></p>
+</li>
+<li><p>用cmd输入<code>ipconfig</code>可以查看到刚创建的网卡<code>VirtualBox Host-Only Network #2</code>:</p>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180909/A1DJafAe5K.png?imageslim" alt="mark"></p>
+<p>第一个是本机的网卡，可以通过它看到本机的ip地址，这在之后会有用到。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="下载CentOS镜像"><a href="#下载CentOS镜像" class="headerlink" title="下载CentOS镜像"></a>下载CentOS镜像</h4><p>直接到<a href="https://www.centos.org/download/" target="_blank" rel="noopener">官网</a>下载<strong>Minimal ISO</strong>镜像即可，点击<strong>Minimal ISO</strong>后进入下载界面选第一个就好了</p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3>
           
         
       
@@ -555,7 +573,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/leetcode004/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/leetcode-004/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chenf99">
@@ -574,7 +592,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/07/leetcode004/" itemprop="url">leetcode004</a></h1>
+                <a class="post-title-link" href="/2018/09/07/leetcode-004/" itemprop="url">leetcode-004</a></h1>
         
 
         <div class="post-meta">
@@ -655,7 +673,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/07/leetcode004/#more" rel="contents">
+            <a class="btn" href="/2018/09/07/leetcode-004/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
