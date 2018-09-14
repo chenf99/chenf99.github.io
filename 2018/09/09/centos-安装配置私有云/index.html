@@ -113,8 +113,7 @@
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/cIdiG97435.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/2AiiIEhf44.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/AfdbhaC78G.png?imageslim">
-<meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/6i6JGh90dd.png?imageslim">
-<meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/LCIa9Gbc4C.png?imageslim">
+<meta property="og:image" content="c:/Users/11638/AppData/Roaming/Typora/typora-user-images/1536887336960.png">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/ffh1l7i2Ge.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/Jl2kjeEbee.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/fg5eDj9kjK.png?imageslim">
@@ -129,7 +128,7 @@
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/758LaBc8CF.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/JE2FdlfDCD.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180910/B8jh7KAicH.png?imageslim">
-<meta property="og:updated_time" content="2018-09-12T08:35:56.901Z">
+<meta property="og:updated_time" content="2018-09-14T01:10:03.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox + CentOS让PC提供云服务">
 <meta name="twitter:description" content="前期准备安装Git客户端直接百度git for windows即可找到官网的下载链接，安装好对应系统版本后应在任何地方右键鼠标都会出现git bash here：">
@@ -378,8 +377,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-12T16:35:56+08:00">
-                2018-09-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-14T09:10:03+08:00">
+                2018-09-14
               </time>
             
           </span>
@@ -438,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k 字
+                  2.7k 字
                 </span>
               
 
@@ -552,7 +551,10 @@
 <li><p>重启后需重新激活第二个网卡，在windows上进入<code>git bash</code>，<code>ping</code>刚才修改的地址，即<code>ping 192.168.100.100</code>：</p>
 <p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180910/AfdbhaC78G.png?imageslim" alt="mark"></p>
 </li>
-<li><p>通过ssh来访问该虚拟机。到<a href="https://www.putty.org/" target="_blank" rel="noopener">官网</a>下载putty,安装后启动，输入虚拟机第二块网卡的地址，点击open即可连接到虚拟机(windows需启动<code>git bash</code>)：<img src="http://peo1cra6j.bkt.clouddn.com/blog/180910/6i6JGh90dd.png?imageslim" alt="mark"><img src="http://peo1cra6j.bkt.clouddn.com/blog/180910/LCIa9Gbc4C.png?imageslim" alt="mark"></p>
+<li><p>通过ssh来访问该虚拟机。<del>到<a href="https://www.putty.org/" target="_blank" rel="noopener">官网</a>下载putty,安装后启动，输入虚拟机第二块网卡的地址，点击open即可连接到虚拟机(windows需启动<code>git bash</code>)</del>：经老师提示发现windows安装了<code>git bash</code>(Unix命令行模拟环境)就有ssh客户端了，可以通过<code>git bash</code>来进行ssh连接，例如我的虚拟机地址是192.168.100.4,则ssh连接的命令为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [用户名]@[虚拟机地址]</span><br></pre></td></tr></table></figure>
+<p>相应操作为：</p>
+<p><img src="C:\Users\11638\AppData\Roaming\Typora\typora-user-images\1536887336960.png" alt="1536887336960"></p>
 </li>
 </ul>
 <p>此时已经差不多完成了，能通过ssh访问到虚拟机就已经搭好私有云环境了，但为了centos更方便使用，继续<strong>安装centos桌面</strong>：</p>
@@ -856,7 +858,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计6.9k字</span>
+  <span class="post-count">本站共计7k字</span>
 </div>
         
 
