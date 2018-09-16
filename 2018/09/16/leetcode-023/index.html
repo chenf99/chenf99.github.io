@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="chenf99 blog">
 <meta property="og:description" content="题目Merge k Sorted Lists  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  Example: 1234567Input:[  1-&amp;gt;4-&amp;gt;5,  1-&amp;gt;3-&amp;gt;4,  2-&amp;gt;6]Output: 1-&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-16T08:27:44.173Z">
+<meta property="og:updated_time" content="2018-09-16T08:31:58.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-023">
 <meta name="twitter:description" content="题目Merge k Sorted Lists  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  Example: 1234567Input:[  1-&amp;gt;4-&amp;gt;5,  1-&amp;gt;3-&amp;gt;4,  2-&amp;gt;6]Output: 1-&amp;">
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-16T16:27:44+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-16T16:31:58+08:00">
                 2018-09-16
               </time>
             
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k 字
+                  1.4k 字
                 </span>
               
 
@@ -442,7 +442,7 @@
 <li>使<code>result_list</code>的尾节点的<code>next</code>指针指向不为空的那个链表的头节点</li>
 </ol>
 <p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//list1和list2分别指向要合并的两个有序链表的头节点</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">merge</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (list1 == <span class="literal">NULL</span>) <span class="keyword">return</span> list2;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (list2 == <span class="literal">NULL</span>) <span class="keyword">return</span> list1;</span><br><span class="line">        ListNode* head = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">            head = list1;</span><br><span class="line">            list1 = list1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            head = list2;</span><br><span class="line">            list2 = list2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (list1 != <span class="literal">NULL</span> &amp;&amp; list2 != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">                head-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                head-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list1 == <span class="literal">NULL</span>) head-&gt;next = list2;</span><br><span class="line">        <span class="keyword">else</span> head-&gt;next = list1;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>这种方法的时间复杂度最大为<code>O(N)</code>，而空间复杂度为<code>O(1)</code>，效率挺不错了。</p>
 <h4 id="合并k个有序链表"><a href="#合并k个有序链表" class="headerlink" title="合并k个有序链表"></a>合并k个有序链表</h4><p>有了前面的基础后再回到这个题目，很容易会想采用同样的方法：比较这<code>k</code>个链表的头节点的值，然后把最小的那个头节点作为合并后链表的头节点，再不断循环。但这样的话每得到一个正确位置的节点就要循环一次，开销太大了，不适用于此种情况。</p>
 <p>鉴于最近课上一直在讲分治算法，很自然地我就想到了用分治法来解决这个问题。既然一次性合并<code>k</code>个链表是困难的，而一次性合并两个链表是容易的，那使用分治法来把这个大问题(合并<code>k</code>个)分成很多个小问题(合并2个)，再一一解决，就很容易了。</p>
@@ -688,7 +688,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计8.2k字</span>
+  <span class="post-count">本站共计8.3k字</span>
 </div>
         
 
