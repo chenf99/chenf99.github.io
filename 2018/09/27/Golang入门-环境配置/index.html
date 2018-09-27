@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180927/9ajF9Fb1g7.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180927/je6EGiJia6.png?imageslim">
 <meta property="og:image" content="http://peo1cra6j.bkt.clouddn.com/blog/180927/2jC1JA9092.png?imageslim">
-<meta property="og:updated_time" content="2018-09-27T13:33:52.883Z">
+<meta property="og:updated_time" content="2018-09-27T16:12:59.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang入门:环境配置">
 <meta name="twitter:description" content="前言在前一篇博客中我们学习了如何配置Centos私有云，下一步我们将要学习Go语言编程。 什么是Go语言？  Go语言由Google于2009年发布，它是一种静态强类型、编译型、并发型、解释型的编程语言，并且具有便利的垃圾回收和强大的运行时反射。 Go语言是简洁的和有效率的，实用性很强。  要学习Go语言编程，第一步就是要学习配置需要的相关环境。">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-27T21:33:52+08:00">
-                2018-09-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T00:12:59+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k 字
+                  1.3k 字
                 </span>
               
 
@@ -462,9 +462,9 @@
 </ul>
 <p>为了方便，可以把<code>bin</code>加入到 $PATH 变量中，便于直接运行Go程序</p>
 <p>创建工作空间：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="variable">$HOME</span>/gowork</span><br></pre></td></tr></table></figure>
 <p>修改配置文件，<code>sudo vi /etc/profile</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$HOME</span>/gowork</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin</span><br></pre></td></tr></table></figure>
 <p>更新配置文件后可以通过<code>go env</code>来查看是否设置成功。</p>
 <h4 id="利用包管理工具安装Golang"><a href="#利用包管理工具安装Golang" class="headerlink" title="利用包管理工具安装Golang"></a>利用包管理工具安装Golang</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install golang</span><br></pre></td></tr></table></figure>
 <p>查看Golang安装的目录：</p>
@@ -473,7 +473,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
 <p>然后是创建工作空间和配置<code>GOPATH</code>、<code>PATH</code>这两个环境变量，步骤同上。</p>
 <h3 id="安装工具和插件"><a href="#安装工具和插件" class="headerlink" title="安装工具和插件"></a>安装工具和插件</h3><h4 id="安装VSCode"><a href="#安装VSCode" class="headerlink" title="安装VSCode"></a>安装VSCode</h4><p>安装过程参考<a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">官方给出的教程</a>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc</span><br><span class="line"></span><br><span class="line">sudo sh -c <span class="string">'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" &gt; /etc/yum.repos.d/vscode.repo'</span></span><br><span class="line"></span><br><span class="line">yum check-update</span><br><span class="line">sudo yum install code</span><br></pre></td></tr></table></figure>
 <p>然后就可以打开VSCode了。</p>
 <h4 id="编写Hello，World"><a href="#编写Hello，World" class="headerlink" title="编写Hello，World"></a>编写Hello，World</h4><p>首先创建源代码目录：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="variable">$GOPATH</span>/src/github.com/github-user/hello -p</span><br></pre></td></tr></table></figure>
@@ -1305,4 +1305,7 @@
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 
