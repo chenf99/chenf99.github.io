@@ -293,6 +293,279 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/Golang入门-环境配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chenf99">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenf99 blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/27/Golang入门-环境配置/" itemprop="url">Golang入门:环境配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T18:05:38+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-27T21:24:21+08:00">
+                2018-09-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务计算课程/" itemprop="url" rel="index">
+                    <span itemprop="name">服务计算课程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k 字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前一篇博客中我们学习了<a href="https://chenf99.github.io/2018/09/09/centos-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BA%91/" target="_blank" rel="noopener">如何配置Centos私有云</a>，下一步我们将要学习Go语言编程。</p>
+<p>什么是Go语言？</p>
+<blockquote>
+<p>Go语言由Google于2009年发布，它是一种静态强类型、编译型、并发型、解释型的编程语言，并且具有便利的垃圾回收和强大的运行时反射。</p>
+<p>Go语言是简洁的和有效率的，实用性很强。</p>
+</blockquote>
+<p>要学习Go语言编程，第一步就是要学习配置需要的相关环境。</p>
+<h2 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h2><h3 id="安装Golang"><a href="#安装Golang" class="headerlink" title="安装Golang"></a>安装Golang</h3><p>有两种方法可以安装Golang:</p>
+<ol>
+<li>下载最新版本的<code>go1.11.linux-amd64.tar.gz</code>，然后解压并配置环境变量，这种方法相对复杂些</li>
+<li>利用系统包管理工具直接下载Golang，这种方法简单。但Golang不是最新版本的，但也不影响使用</li>
+</ol>
+<h4 id="安装最新版Golang"><a href="#安装最新版Golang" class="headerlink" title="安装最新版Golang"></a>安装最新版Golang</h4><p>下载二进制包可以去<a href="https://golang.org/dl/" target="_blank" rel="noopener">官网</a>下载，也可以利用<code>wget</code>工具自动下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<p>然后解压，可以指定解压到的目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf go1.11.linux-amd64.tar.gz -C /opt/</span><br></pre></td></tr></table></figure>
+<p>记得一定要加上-C(大写)这个参数，创建默认文件夹才能被成功解压，否则报错如下：<img src="http://peo1cra6j.bkt.clouddn.com/blog/180927/a028jIi9B9.png?imageslim" alt="mark"></p>
+<p>设置环境变量，<code>sudo vi /etc/profile</code>，在底部加上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=/opt/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br></pre></td></tr></table></figure>
+<p>然后<code>source /etc/profile</code>更新环境变量，再使用<code>go version</code>检查配置是否正常：</p>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180927/9ajF9Fb1g7.png?imageslim" alt="mark"></p>
+<p>我们可以使用<code>go env</code>来查看Go的环境变量，其中比较重要的是<code>GOROOT</code>和<code>GOPATH</code>，<code>GOROOT</code>里面放置系统代码和中间文件，而<code>GOPATH</code>可以作为我们的工作空间。<code>GOROOT</code>和<code>GOPATH</code>中都有三个子目录：</p>
+<ul>
+<li><code>src</code>:存放被组织成包的源代码(.go .c .h .s等)</li>
+<li><code>pkg</code>:存放编译后生成的文件(.a)</li>
+<li><code>bin</code>:存放编译后生成的可执行文件</li>
+</ul>
+<p>为了方便，可以把<code>bin</code>加入到 $PATH 变量中，便于直接运行Go程序</p>
+<p>创建工作空间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>修改配置文件，<code>sudo vi /etc/profile</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>更新配置文件后可以通过<code>go env</code>来查看是否设置成功。</p>
+<h4 id="利用包管理工具安装Golang"><a href="#利用包管理工具安装Golang" class="headerlink" title="利用包管理工具安装Golang"></a>利用包管理工具安装Golang</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install golang</span><br></pre></td></tr></table></figure>
+<p>查看Golang安装的目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql golang |more</span><br></pre></td></tr></table></figure>
+<p>测试安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+<p>然后是创建工作空间和配置<code>GOPATH</code>、<code>PATH</code>这两个环境变量，步骤同上。</p>
+<h3 id="安装工具和插件"><a href="#安装工具和插件" class="headerlink" title="安装工具和插件"></a>安装工具和插件</h3><h4 id="安装VSCode"><a href="#安装VSCode" class="headerlink" title="安装VSCode"></a>安装VSCode</h4><p>安装过程参考<a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">官方给出的教程</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后就可以打开VSCode了。</p>
+<h4 id="编写Hello，World"><a href="#编写Hello，World" class="headerlink" title="编写Hello，World"></a>编写Hello，World</h4><p>首先创建源代码目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="variable">$GOPATH</span>/src/github.com/github-user/hello -p</span><br></pre></td></tr></table></figure>
+<p>然后使用VSCode编写一个<code>hello.go</code>文件(VSCode会提示安装Go相关插件)：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"hello, world\n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<strong>终端</strong>运行：</p>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180927/je6EGiJia6.png?imageslim" alt="mark"></p>
+<h4 id="安装git客户端"><a href="#安装git客户端" class="headerlink" title="安装git客户端"></a>安装git客户端</h4><p>由于Go语言的插件主要在github上，因此<code>git</code>客户端必不可少</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install git</span><br></pre></td></tr></table></figure>
+<p>但这样安装的<code>git</code>太老，总觉得用着不舒服，因此我选择更新：</p>
+<ol>
+<li><p>首先移除安装的旧版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装所需的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">sudo yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去官网下载安装包并解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.9.2.tar.gz</span><br><span class="line">tar -zxvf git-2.9.2.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> git-2.9.2</span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git all</span><br><span class="line">sudo make prefix=/usr/<span class="built_in">local</span>/git install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置环境变量，在/<code>etc/profile</code>中添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/git/bin</span><br></pre></td></tr></table></figure>
+<p>更新环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果此时查看<code>git</code>仍是旧版本，执行以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove -y git</span><br><span class="line"><span class="built_in">source</span> /etc/bashrc</span><br><span class="line"><span class="built_in">cd</span> ~/</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180927/2jC1JA9092.png?imageslim" alt="mark"></p>
+</li>
+</ol>
+<h4 id="安装Go的一些工具"><a href="#安装Go的一些工具" class="headerlink" title="安装Go的一些工具"></a>安装Go的一些工具</h4><p>当我们进入VSCode打开<code>hello.go</code>时，VSCode会提示我们安装<code>go-outline</code>，点击Install却失败了，需要手动安装：</p>
+<ol>
+<li><p>下载源码到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件夹</span></span><br><span class="line">mkdir -p <span class="variable">$GOPATH</span>/src/golang.org/x/</span><br><span class="line"><span class="comment"># 下载源码</span></span><br><span class="line">go get -d github.com/golang/tools</span><br><span class="line"><span class="comment"># copy </span></span><br><span class="line">cp <span class="variable">$GOPATH</span>/src/github.com/golang/tools <span class="variable">$GOPATH</span>/src/golang.org/x/ -rf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装工具包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install <span class="variable">$GOPATH</span>/src/golang.org/x/tools/go/buildutil</span><br></pre></td></tr></table></figure>
+<p>重启VSCode，按照提示安装即可</p>
+</li>
+<li><p>安装运行 hello world</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/github-user/hello</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="安装go-tour"><a href="#安装go-tour" class="headerlink" title="安装go tour"></a>安装go tour</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/Go-zh/tour/gotour</span><br></pre></td></tr></table></figure>
+<p>安装好之后会在工作空间的 <code>bin</code> 目录中创建一个 <code>gotour</code> 可执行文件</p>
+<p>运行Go语言之旅</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go tool tour</span><br></pre></td></tr></table></figure>
+<h3 id="绑定git远程仓库"><a href="#绑定git远程仓库" class="headerlink" title="绑定git远程仓库"></a>绑定git远程仓库</h3><p>之前我们已经在<code>github.com</code>文件夹下创建了与自己的<code>github</code>账户同名的文件夹，现在需要把这个文件夹绑定<code>git</code>上的远程仓库，用来保存我们以后编写的Go语言代码。</p>
+<p>在<code>github</code>上创建一个仓库用于同步之后就可以来绑定远程仓库了，本地执行指令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git config --global user.name <span class="string">"xxx"</span></span><br><span class="line">git config --global user.email <span class="string">"xxx@xxx"</span></span><br><span class="line">git remote add origin your_repo_url</span><br></pre></td></tr></table></figure>
+<p>以上传<code>hello</code>文件夹为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add hello/</span><br><span class="line">git commit -m <span class="string">'first commit'</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p><code>git</code>相关指令详见<a href="https://chenf99.github.io/2018/09/13/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">git学习笔记</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+		
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/leetcode-042/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1622,7 +1895,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1644,7 +1917,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1703,7 +1976,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计9.6k字</span>
+  <span class="post-count">本站共计10.8k字</span>
 </div>
         
 
