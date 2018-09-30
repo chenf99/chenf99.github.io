@@ -329,36 +329,74 @@
 <p><strong>使用的组件</strong></p>
 <p>TextView、EditText、ConstraintLayout、Button、ImageView、RadioGroup、RadioButton。</p>
 <h3 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h3><p>首先新建Android项目并命名为ExperimentOne，创建好之后以Android查看视角来打开<code>\app\res\values\styles.xml</code>，修改名为<code>AppTheme</code>的style，如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Base.Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;style name=&quot;AppTheme&quot; parent=&quot;Base.Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+</code></pre>
 <p>即在<code>parent</code>属性那里加上<code>Base.</code>，这样就能够看到<code>activity_main.xml</code>的预览了。</p>
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>标题使用组件TextView来设计，按照要求，需要设置字体大小、与顶部距离和居中显示。可通过<code>textSize</code>、<code>layout_margin</code>，以及约束布局来实现：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/title"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_margin</span>=<span class="string">"20dp"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/title&quot;
+        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+        app:layout_constraintRight_toRightOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        android:textSize=&quot;20sp&quot;
+        android:layout_margin=&quot;20dp&quot;/&gt;
+</code></pre>
 <p>在这里<code>text</code>属性值被设置成了<code>@string/title</code>，而不是直接写出值，这是因为AS会给出警告：<code>Hardcoded text</code>，最好不要使用硬编码，而是把字符串的值写在<code>\values\strings.xml</code>文件中，在其中增加一个<code>&lt;string&gt;</code>标签：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"title"</span>&gt;</span>中山大学智慧健康服务平台<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;string name=&quot;title&quot;&gt;中山大学智慧健康服务平台&lt;/string&gt;
+</code></pre>
 <p>之后的所有text属性值都将采用这种赋值方法。</p>
 <h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>图片的显示使用ImageView来设计，官方推荐把图片资源放在<code>mipmap</code>文件夹下：<img src="http://peo1cra6j.bkt.clouddn.com/blog/180926/D6JHhdEJ8f.png?imageslim" alt="mark"></p>
 <p>这些文件夹分别代表着不同的分辨率，把图片放在不同文件夹里的显示效果是不一样的。把要显示的图片复制到<code>mipmap</code>文件夹下后就可以直接设置图片的路径了：</p>
 <p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180926/5dkc8EF0hF.png?imageslim" alt="mark"></p>
 <p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180926/3C2j9kedEC.png?imageslim" alt="mark"></p>
 <p>然后再设置图片的位置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_margin</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@id/textView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:srcCompat</span>=<span class="string">"@mipmap/sysu"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;ImageView
+        android:layout_margin=&quot;20dp&quot;
+        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+        app:layout_constraintRight_toRightOf=&quot;parent&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/textView&quot;
+        app:srcCompat=&quot;@mipmap/sysu&quot; /&gt;
+</code></pre>
 <h4 id="输入框"><a href="#输入框" class="headerlink" title="输入框"></a>输入框</h4><p>输入框使用EditText组件，提示内容和字体容易设置，重点是它的布局设置：</p>
 <ol>
 <li><p>它在图片的下方且距离图片20dp：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag"><span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@id/imageView"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_marginTop</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;EditText
+app:layout_constraintTop_toBottomOf=&quot;@id/imageView&quot;
+    android:layout_marginTop=&quot;20dp&quot;
+/&gt;
+</code></pre>
 </li>
 <li><p>与左边屏幕距离20dp：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">	<span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_marginStart</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;EditText
+    app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+    android:layout_marginStart=&quot;20dp&quot;
+/&gt;
+</code></pre>
 </li>
 <li><p>与右边的按钮间距10dp：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">	<span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">"@id/button"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_marginEnd</span>=<span class="string">"10dp"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;EditText
+    app:layout_constraintRight_toLeftOf=&quot;@id/button&quot;
+    android:layout_marginEnd=&quot;10dp&quot;
+/&gt;
+</code></pre>
 </li>
 <li><p>组件宽度填充满范围以及文本内容居中显示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;EditText
+    android:layout_width=&quot;0dp&quot;
+    android:gravity=&quot;center&quot;
+/&gt;
+</code></pre>
 </li>
 </ol>
 <h4 id="圆角按钮"><a href="#圆角按钮" class="headerlink" title="圆角按钮"></a>圆角按钮</h4><p>按钮使用Button组件，有了之前设置图片位置的经验，按钮位置的设置也不难实现：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">	<span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"@id/editText"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_marginEnd</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;Button
+    app:layout_constraintRight_toRightOf=&quot;parent&quot;
+    app:layout_constraintTop_toTopOf=&quot;@id/editText&quot;
+    android:layout_marginEnd=&quot;20dp&quot;
+/&gt;
+</code></pre>
 <p>重点在于实现它的圆角矩形背景框的实现，这需要定义一个xml文件，然后设置它的backgound属性：</p>
 
         
@@ -438,7 +476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -460,7 +498,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -535,7 +573,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计10.8k字</span>
+  <span class="post-count">本站共计11.9k字</span>
 </div>
         
 

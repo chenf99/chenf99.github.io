@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="linux,配置环境," />
+  <meta name="keywords" content="配置环境,linux," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="前期准备安装Git客户端直接百度git for windows即可找到官网的下载链接，安装好对应系统版本后应在任何地方右键鼠标都会出现git bash here：">
-<meta name="keywords" content="linux,配置环境">
+<meta name="keywords" content="配置环境,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox + CentOS让PC提供云服务">
 <meta property="og:url" content="http://yoursite.com/2018/09/09/centos-安装配置私有云/index.html">
@@ -507,19 +507,20 @@
 <p>具体操作为(以163源为例):</p>
 <ul>
 <li><p>备份<code>/etc/yum.repos.d/CentOS-Base.repo</code>(即改名):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+</code></pre></li>
 <li><p>进入yum源配置文件：<code>cd /etc/yum.repos.d</code><img src="http://peo1cra6j.bkt.clouddn.com/blog/180910/Ih7GD7cfD5.png?imageslim" alt="mark"></p>
 </li>
 <li><p>下载网易163源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>sudo wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+</code></pre></li>
 <li><p>下载好后把163源设置为默认源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv CentOS7-Base-163.repo CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>sudo mv CentOS7-Base-163.repo CentOS-Base.repo
+</code></pre></li>
 <li><p>然后生成缓存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>yum clean all
+yum makecache
+</code></pre></li>
 </ul>
 </li>
 <li><p>升级OS内核：<code>sudo yum update</code></p>
@@ -552,7 +553,8 @@
 <p><img src="http://peo1cra6j.bkt.clouddn.com/blog/180910/AfdbhaC78G.png?imageslim" alt="mark"></p>
 </li>
 <li><p>通过ssh来访问该虚拟机。<del>到<a href="https://www.putty.org/" target="_blank" rel="noopener">官网</a>下载putty,安装后启动，输入虚拟机第二块网卡的地址，点击open即可连接到虚拟机(windows需启动<code>git bash</code>)</del>：经老师提示发现windows安装了<code>git bash</code>(Unix命令行模拟环境)就有ssh客户端了，可以通过<code>git bash</code>来进行ssh连接，例如我的虚拟机地址是192.168.100.4,则ssh连接的命令为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [用户名]@[虚拟机地址]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">ssh [用户名]@[虚拟机地址]
+</code></pre>
 <p>相应操作为：</p>
 <p><img src="C:\Users\11638\AppData\Roaming\Typora\typora-user-images\1536887336960.png" alt="1536887336960"></p>
 </li>
@@ -564,8 +566,8 @@
 <li><p>启动虚拟机，安装桌面<code>sudo yum groupinstall &quot;GNOME Desktop&quot;</code>,这个很大，耗费时间比较长，需要耐心等待，如果下载不成功，可能需要更换yum源</p>
 </li>
 <li><p>安装好后设置启动目标为桌面，然后重启:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+</code></pre></li>
 </ol>
 <p>此时我们已经可以通过图形化界面来使用centos，但因为虚拟机对鼠标的捕获很不友好，导致使用很不方便，而且也不能全屏，那么就需要<strong>安装VirtualBox的扩展功能</strong>了：</p>
 <ul>
@@ -646,9 +648,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"> <i class="fa fa-tag"></i> linux</a>
-          
             <a href="/tags/配置环境/" rel="tag"> <i class="fa fa-tag"></i> 配置环境</a>
+          
+            <a href="/tags/linux/" rel="tag"> <i class="fa fa-tag"></i> linux</a>
           
         </div>
       
@@ -761,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -783,7 +785,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -858,7 +860,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计10.8k字</span>
+  <span class="post-count">本站共计11.9k字</span>
 </div>
         
 
