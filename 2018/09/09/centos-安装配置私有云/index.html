@@ -507,18 +507,18 @@
 <p>具体操作为(以163源为例):</p>
 <ul>
 <li><p>备份<code>/etc/yum.repos.d/CentOS-Base.repo</code>(即改名):</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span> /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/CentOS-Base<span class="selector-class">.repo</span><span class="selector-class">.backup</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进入yum源配置文件：<code>cd /etc/yum.repos.d</code><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181004165922.png" alt=""></p>
 </li>
 <li><p>下载网易163源：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http:<span class="regexp">//mi</span>rrors.<span class="number">163</span>.com<span class="regexp">/.help/</span>CentOS7-Base-<span class="number">163</span>.repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下载好后把163源设置为默认源：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">mv</span> <span class="selector-tag">CentOS7-Base-163</span><span class="selector-class">.repo</span> <span class="selector-tag">CentOS-Base</span><span class="selector-class">.repo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv CentOS7-Base-163.repo CentOS-Base.repo</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后生成缓存：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span></span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -564,7 +564,7 @@
 <li><p>启动虚拟机，安装桌面<code>sudo yum groupinstall &quot;GNOME Desktop&quot;</code>,这个很大，耗费时间比较长，需要耐心等待，如果下载不成功，可能需要更换yum源</p>
 </li>
 <li><p>安装好后设置启动目标为桌面，然后重启:</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /<span class="class"><span class="keyword">lib</span>/<span class="title">systemd</span>/<span class="title">system</span>/<span class="title">runlevel5</span>.<span class="title">target</span> /<span class="title">etc</span>/<span class="title">systemd</span>/<span class="title">system</span>/<span class="title">default</span>.<span class="title">target</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>此时我们已经可以通过图形化界面来使用centos，但因为虚拟机对鼠标的捕获很不友好，导致使用很不方便，而且也不能全屏，那么就需要<strong>安装VirtualBox的扩展功能</strong>了：</p>
@@ -761,7 +761,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -858,7 +858,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计11.9k字</span>
+  <span class="post-count">本站共计12.9k字</span>
 </div>
         
 
