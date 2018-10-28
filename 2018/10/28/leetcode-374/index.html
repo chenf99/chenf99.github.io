@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="chenf99 blog">
 <meta property="og:description" content="题目Wiggle Sort II  Given an unsorted array nums, reorder it such that nums[0] &amp;lt; nums[1] &amp;gt; nums[2] &amp;lt; nums[3]...   Example 1: 123&amp;gt; Input: nums = [1, 5, 1, 1, 6, 4]&amp;gt; Output: One possible an">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T04:53:01.279Z">
+<meta property="og:updated_time" content="2018-10-28T10:24:38.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-374">
 <meta name="twitter:description" content="题目Wiggle Sort II  Given an unsorted array nums, reorder it such that nums[0] &amp;lt; nums[1] &amp;gt; nums[2] &amp;lt; nums[3]...   Example 1: 123&amp;gt; Input: nums = [1, 5, 1, 1, 6, 4]&amp;gt; Output: One possible an">
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-28T12:53:01+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-28T18:24:38+08:00">
                 2018-10-28
               </time>
             
@@ -443,6 +443,7 @@
 <p><strong>Note:</strong><br>You may assume all input has valid answer.</p>
 <p><strong>Follow Up:</strong><br>Can you do it in O(n) time and/or in-place with O(1) extra space?</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题的意思是把一个无序的数组进行摆动排序，即在奇数下标(1, 3, 5, …)的元素值大于它相邻的偶数下标(0, 2, 4, …)的元素值。如果画出元素值大小随下标变化的图像的话，图像就随着下标的增大在上下不断摆动。</p>
 <p>题目保证给出的输入一定有对应有效的输出。</p>
 <p>我认为这道题的难点主要在于输入的值中可能有很多相同的值，如果值各异的话，通过简单的遍历来进行值的交换即可，每次遍历到的元素只需要与已确定的部分的最后一个元素比较大小。但由于存在相同的值，这种方法会导致相同的值会聚集在一起，无法得到正确结果。</p>
