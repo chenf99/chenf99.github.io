@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode-374]]></title>
+    <url>%2F2018%2F10%2F28%2Fleetcode-374%2F</url>
+    <content type="text"><![CDATA[题目Wiggle Sort II Given an unsorted array nums, reorder it such that nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]... Example 1: 123&gt; Input: nums = [1, 5, 1, 1, 6, 4]&gt; Output: One possible answer is [1, 4, 1, 5, 1, 6].&gt; Example 2： 123&gt; Input: nums = [1, 3, 2, 2, 3, 1]&gt; Output: One possible answer is [2, 3, 1, 3, 1, 2].&gt; Note:You may assume all input has valid answer. Follow Up:Can you do it in O(n) time and/or in-place with O(1) extra space? 分析这道题的意思是把一个无序的数组进行摆动排序，即在奇数下标(1, 3, 5, …)的元素值大于它相邻的偶数下标(0, 2, 4, …)的元素值。如果画出元素值大小随下标变化的图像的话，图像就随着下标的增大在上下不断摆动。 题目保证给出的输入一定有对应有效的输出。 我认为这道题的难点主要在于输入的值中可能有很多相同的值，如果值各异的话，通过简单的遍历来进行值的交换即可，每次遍历到的元素只需要与已确定的部分的最后一个元素比较大小。但由于存在相同的值，这种方法会导致相同的值会聚集在一起，无法得到正确结果。 解法一一种比较容易想到的解法是先找到数组的中位数，然后把所有大于中位数的元素放在奇数位置，所有小于中位数的元素放在偶数位置，等于中位数的元素则需要好好考虑，要尽量把它们分开来存放，如果两个等于中位数的元素相邻也是不满足要求的。 首先把数组排序，就能够找到中位数，然后把大于中位数的元素从左往右开始存放到奇数位置，把小于中位数的元素从右往左存放到偶数位置，等于中位数的元素存放在剩余位置。由于数组已经排好序，所以对于奇数位置，等于中位数的元素是放在右边的，而对于偶数位置，等于中位数的元素是放在左边的，这样就一定能够满足要求。所以寻找中位数不能使用nth_element()函数，因为这个函数并不会把数组排序，之后的操作也就无法保证能把等于中位数的元素分离开。 这种解法时间复杂度为排序的复杂度，O(nlogn)，空间复杂度O(n)。 代码1234567891011121314151617181920class Solution &#123;public: void wiggleSort(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(), nums.end()); //nth_element(nums.begin(), nums.begin() + nums.size() / 2, nums.end()); int len = nums.size(); int mid = nums[len / 2]; int odd = 1, even = (len % 2) ? len - 1 : len - 2; vector&lt;int&gt; tmp(len, mid); for(int i = len - 1; i &gt; len / 2; i--) &#123; tmp[odd] = nums[i]; odd += 2; &#125; for(int i = 0; i &lt; len / 2; i++) &#123; tmp[even] = nums[i]; even -= 2; &#125; nums = tmp; &#125;&#125;; 解法二解法一的时间复杂度和空间复杂度都不是最优的，在Discuss%2BO(1)-after-median-Virtual-Indexing)中有人给出了时间复杂度O(n)，空间复杂度O(1)的解法，用到了virtual indexing和three-way-partition的技巧。 主要想法跟解法一类似，都是去找中位数，然后把大于中位数的元素放奇数位置，小于中位数的元素放偶数位置，等于中位数的元素放在剩余位置。 要解决时间复杂度的问题，可以用nth_element()函数来寻找中位数；要解决空间复杂度的问题，就不能够构造另外的数组，要进行就地置换(in_place)。 现在总结一下需要解决的问题：大于中位数的放1, 3, 5,…位置，小于中位数的放2, 4, 6,…位置，等于中位数的位置可以不变，同时在交换位置的过程中不能开辟额外的内存空间。 通过结合下标映射和3分法可以解决问题：把下标映射成1，3，5，…，2， 4， 6，…的形式，然后利用3分法，大于中位数的放左边，即映射后的1，3， 5，…下标；小于中位数的放右边，即映射后的2，4，6…下标。 映射是return (1 + 2 * index) % (len | 1);，其中len | 1在len为偶数时取len + 1，在len为奇数时取len。映射把从0～len - 1的index映射到1, 3, 5, …, 2, 4, 6, …。 之后就交给三分法来解决问题，只不过用于三分法的数组下标始终是经过映射后得到的下标。 时间复杂度为O(n)，空间复杂度为O(1)。 代码12345678910111213141516171819202122232425class Solution &#123;public: void wiggleSort(vector&lt;int&gt;&amp; nums) &#123; nth_element(nums.begin(), nums.begin() + nums.size() / 2, nums.end()); int len = nums.size(); int mid = nums[len / 2]; for (int i = 0, left = 0, right = len - 1; i &lt;= right;) &#123; if (nums[mappedIndex(i, len)] &gt; mid) swap(nums, mappedIndex(left++, len), mappedIndex(i++, len)); else if (nums[mappedIndex(i, len)] &lt; mid) swap(nums, mappedIndex(right--, len), mappedIndex(i, len)); else i++; &#125; &#125;private: void swap(vector&lt;int&gt;&amp; nums, int index1, int index2) &#123; int tmp = nums[index1]; nums[index1] = nums[index2]; nums[index2] = tmp; &#125; //把从0～len - 1的index映射到1, 3, 5, ..., 2, 4, 6, ... int mappedIndex(int index, int len) &#123; return (1 + 2 * index) % (len | 1); &#125;&#125;;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode-279]]></title>
     <url>%2F2018%2F10%2F21%2Fleetcode-279%2F</url>
     <content type="text"><![CDATA[题目Perfect Squares Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n. Example1 123Input: n = 12Output: 3 Explanation: 12 = 4 + 4 + 4. Example2 123Input: n = 13Output: 2Explanation: 13 = 4 + 9. 分析这道题目的意思是给定一个正整数，要求我们找到最少的平方数，它们的和等于这个正整数。 解法一一开始我尝试从这个正整数减去它最大的平方数入手，判断剩下的数能由多少个平方数组成。但这样做的问题是很可能找不到最少的平方数数目，因为剩下那部分数可能只能由1组成，比如12按这种做法得到的结果就是4。 对于这种问题，最好的方法是分解问题成为一个个易求解的子问题，再分别求解。 我分解问题的方法其实也是在前面的想法上进行改进得到的。 假设问题要求解的是num[n]，n为输入的正整数，我们可以把问题分解成： 1num[n] = min(num[n], num[n - i * i] + 1) 其中i是范围在[1, sqrt(n)]的正整数。通过赋值num[0] = 0，我们可以求出很多num[平方数] = 1，这样一层层求解出来就可以得到num[n]了。 代码12345678910111213141516171819#include &lt;iostream&gt;#include &lt;cmath&gt;#include &lt;vector&gt;#include &lt;climits&gt;using namespace std;class Solution &#123;public: int numSquares(int n) &#123; vector&lt;int&gt; num(n + 1, __INT_MAX__); num[0] = 0; for (int i = 1; i &lt;= n; ++i) &#123; for (int j = 1; j &lt;= sqrt(i); ++j) &#123; num[i] = min(num[i - j * j] + 1, num[i]); &#125; &#125; return num[n]; &#125;&#125;; 解法二解法二是我在Discuss中看到的，是一种数学解法，利用到了四平方和定理，简单来说就是任何一个正整数都可以表示成4个平方数之和，因此答案 &lt;= 4。同时这个定理中还有一个公式：4k(8m + 7)，如果一个正整数不满足这个公式，那么它可以表示成3个平方数之和，此时答案 &lt;= 3；反之，满足这个公式的话答案 == 4。还有个重要的性质：就是如果一个数n是4的倍数，那么num[n] = num[n / 4]。 利用这个数学定理，我们可以更加快速地求出这个问题的答案，利用最后那个性质可以把正整数n缩小，很大地简化了后续求解过程。 代码1234567891011121314151617181920212223242526#include &lt;iostream&gt;#include &lt;cmath&gt;#include &lt;vector&gt;#include &lt;climits&gt;using namespace std;class Solution &#123;public: int numSquares(int n) &#123; //是4的倍数的话可以除以4，不影响结果 while (n % 4 == 0) n /= 4; //满足8m + 7的数 if (n % 8 == 7) return 4; else &#123; //能否拆成两个平方数之和 for (int i = 0; i * i &lt;= n; ++i) &#123; int tmp = sqrt(n - i * i); if (tmp * tmp == n - i * i) &#123; return !!i + !!tmp; &#125; &#125; //拆不了的话答案就一定是3 return 3; &#125; &#125;&#125;;]]></content>
@@ -52,8 +63,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>Go</tag>
         <tag>配置环境</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -108,8 +119,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>配置环境</tag>
         <tag>linux</tag>
+        <tag>配置环境</tag>
       </tags>
   </entry>
   <entry>
