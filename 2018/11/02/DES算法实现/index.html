@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DES," />
 
 
 
@@ -86,13 +86,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="chenf99 blog">
-<meta property="og:url" content="http://yoursite.com/categories/leetcode/page/3/index.html">
+<meta name="description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法概述DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖">
+<meta name="keywords" content="DES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DES算法实现">
+<meta property="og:url" content="http://yoursite.com/2018/11/02/DES算法实现/index.html">
 <meta property="og:site_name" content="chenf99 blog">
+<meta property="og:description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法概述DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102093507.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102095327.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102214314.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102222927.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/02/DES算法实现/img/1541168306963.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102233423.png">
+<meta property="og:updated_time" content="2018-11-02T15:34:43.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chenf99 blog">
+<meta name="twitter:title" content="DES算法实现">
+<meta name="twitter:description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法概述DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102093507.png">
 
 
 
@@ -122,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/leetcode/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/02/DES算法实现/"/>
 
 
 
 
 
-  <title>分类: leetcode | chenf99 blog</title>
+  <title>DES算法实现 | chenf99 blog</title>
   
 
 
@@ -147,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/chenf99" class="github-corner" aria-label="View source on Github">
 	<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -278,115 +290,297 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>leetcode<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/DES算法实现/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chenf99">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenf99 blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/16/leetcode-023/" itemprop="url">
-              
-                <span itemprop="name">leetcode-023</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">DES算法实现</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-16T15:33:29+08:00"
-              content="2018-09-16" >
-          09-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-02T09:25:12+08:00">
+                2018-11-02
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-02T23:34:43+08:00">
+                2018-11-02
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/02/DES算法实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/11/02/DES算法实现/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k 字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/09/leetcode-031/" itemprop="url">
-              
-                <span itemprop="name">leetcode-031</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-09T20:25:20+08:00"
-              content="2018-09-09" >
-          09-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/07/leetcode-004/" itemprop="url">
-              
-                <span itemprop="name">leetcode-004</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-07T14:07:50+08:00"
-              content="2018-09-07" >
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>本文阐述DES算法的基本原理及其C++实现方法，并给出源代码</p>
+<h2 id="算法概述"><a href="#算法概述" class="headerlink" title="算法概述"></a>算法概述</h2><p>DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。<br>DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。虽然56位的密钥对于现在来说加密强度不够，但是可以通过多次DES加密来加强加密强度。<br>DES 算法的基本过程是换位和置换。 </p>
+<h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><p>DES算法的总体结构如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102093507.png" alt=""></p>
+<p>加密和解密过程都适用于上图，唯一的差别在于<strong>子密钥的调度顺序不同</strong>：</p>
+<p>输入64位明文 M 时，子密钥按 (K<sub>1</sub>K<sub>2</sub>… K<sub>16</sub>)次序调度，是加密过程。<br>输入64位密文 C 时，子密钥按 (K<sub>16</sub>K<sub>15</sub> … K<sub>1</sub>)次序调度，是解密过程 </p>
+<p>下面以加密为例，阐述DES算法的具体过程：</p>
+<h3 id="分解明文"><a href="#分解明文" class="headerlink" title="分解明文"></a>分解明文</h3><p>按照8个字节(64位)一组来将明文分组，原始明文消息按PKCS#5 (RFC 8018) 规范进行字节填充，即：</p>
+<ul>
+<li><p>最后一组长度不够8个字节时，在末尾以字节填满，填入的字节取值相同，都是填充的字节数目 </p>
+</li>
+<li><p>原始明文消息刚好分组完全时，在末尾填充8个字节 (即增<br>加一个完整分组)，字节取值都是08 </p>
+</li>
+</ul>
+<p>接下来的每一组作为DES算法的输入M，开始加密</p>
+<p><strong>接下来的下标除了S盒之外，都是从1开始，而不是从0开始</strong></p>
+<h3 id="初始置换IP"><a href="#初始置换IP" class="headerlink" title="初始置换IP"></a>初始置换IP</h3><p>通过固定的初始置换表来重排M中的二进制位，以下表为例：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102095327.png" alt=""></p>
+<p>置换的过程即是把M[58]的值赋给M[1]，M[50]的值赋给M[2]。</p>
+<p>要注意的是下标不是从0开始</p>
+<p>之后的所有置换都类似于这种情况</p>
+<p>置换后得到64位二进制串M<sub>0</sub> = L<sub>0</sub>R<sub>0</sub>，L<sub>0</sub>、R<sub>0</sub>分别为前32位和后32位</p>
+<h3 id="16轮迭代T"><a href="#16轮迭代T" class="headerlink" title="16轮迭代T"></a>16轮迭代T</h3><p>这是算法最复杂的部分，迭代过程如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102214314.png" alt=""></p>
+<p>上一步得到的L<sub>0</sub>、R<sub>0</sub>作为这一步骤的初始输入，开始迭代。</p>
+<ul>
+<li>这一轮的<strong>右32位R<sub>i-1</sub></strong>直接作为下一轮的<strong>左32位L<sub>i</sub></strong></li>
+<li>这一轮的<strong>左32位L<sub>i-1</sub></strong>与<strong>输出为32位的Feistel</strong> 函数进行<strong>异或</strong>运算之后得到下一轮的<strong>右32位R<sub>i-1</sub></strong></li>
+</ul>
+<p>这个过程要持续16次，即得到L<sub>16</sub>、R<sub>16</sub></p>
+<h4 id="Feistel函数"><a href="#Feistel函数" class="headerlink" title="Feistel函数"></a>Feistel函数</h4><p>从迭代过程的图可以看到，Feistel的输入输出为：</p>
+<ul>
+<li>输入1：上一轮迭代结果的<strong>右32位R<sub>i-1</sub></strong></li>
+<li>输入2：长度为<strong>48位</strong>的子密钥<strong>K<sub>i</sub></strong></li>
+<li>输出：<strong>32位</strong>的结果</li>
+</ul>
+<p>此函数的具体工作过程为：</p>
+<ol>
+<li>将长度为32位的串<strong>R<sub>i-1</sub></strong>进行 <strong>E-扩展</strong>，成为<strong>48位</strong>的串 <strong>E(R<sub>i-1</sub>)</strong>，E-扩展的原理类似于IP置换，通过借助<strong>E-扩展规则 (比特-选择表)</strong> 来实现</li>
+<li>将 <strong>E(R<sub>i-1</sub>)</strong> 和长度为48位的子密钥 <strong>K<sub>i</sub></strong> 作<strong>异或</strong>运算，K<sub>i</sub> 由密钥 K 生成(稍后解释生成子密钥过程)</li>
+<li>将 (2) 得到的结果<strong>分成8个分组</strong>，每个分组长度6位(可以直接按照下标顺序来分组)。各个分组分别经过8个不同的 <strong>S-盒</strong>进行 <strong>6-4 转换</strong>，得到8个长度分别为4位的分组(S-盒操作也稍后解释)</li>
+<li>将 (3) 得到的分组结果顺序连接得到长度为32位的串</li>
+<li>将 (4) 的结果经过 <strong>P-置换</strong>，得到的结果作为Feistel函数的最终32位输出</li>
+</ol>
+<h4 id="生成子密钥"><a href="#生成子密钥" class="headerlink" title="生成子密钥"></a>生成子密钥</h4><p>根据给定的64位密钥K，生成16个48位的子密钥 K<sub>1</sub>-K<sub>16</sub> </p>
+<p>原理为：</p>
+<ol>
+<li>对64位密钥K进行<strong>PC-1置换</strong>，得到去掉了8位检验位的56位串，C<sub>0</sub>和D<sub>0</sub>分别为前28位和后28位结果，令i = 1</li>
+<li>分别对C<sub>i</sub>和D<sub>i</sub>进行循环左移，如果i=1,2,9,16，则循环左移一位，否则循环左移两位，得到C<sub>i+1</sub>和D<sub>i+1</sub></li>
+<li>对56位的C<sub>i</sub>D<sub>i</sub>进行<strong>PC-2置换压缩</strong>，得到48位的子密钥K<sub>i</sub>，i = i + 1，返回第二步，直到生成第16个子密钥K<sub>i</sub></li>
+</ol>
+<p>生成过程图解：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102222927.png" alt=""></p>
+<h4 id="S-盒"><a href="#S-盒" class="headerlink" title="S-盒"></a>S-盒</h4><p>前面已经介绍，S-盒用于把6位二进制串转换成4位二进制串，Feistel函数中有8个6位的分组，因此用到了8个不同的S-盒</p>
+<p>S-盒原理为：</p>
+<p>每一个S-盒是一个4行(编号 0-3)、16列(编号 0-15) 的表，表中元素值是10进制的值</p>
+<p>假设 S<sub>i</sub> 的6位输入为b<sub>1</sub>b<sub>2</sub>b<sub>3</sub>b<sub>4</sub>b<sub>5</sub>b<sub>6</sub>，则<strong>由 n = (b<sub>1</sub>b<sub>6</sub>)<sub>10</sub> 确定行号</strong>，<strong>由 m = (b<sub>2</sub>b<sub>3</sub>b<sub>4</sub>b<sub>5</sub>)<sub>10</sub> 确定列号</strong>，[ S<sub>i</sub> ]<sub>n,m</sub>元素的值的二进制形式即为所要的 S<sub>i</sub> 的输出 </p>
+<p>在这里要注意，<strong>行号和列号都是从0开始的</strong>，这一点与其他地方不同</p>
+<p>用一个例子来说明：</p>
+<p>S<sub>1</sub>盒的表如图所示：</p>
+<p><img src="img/1541168306963.png" alt="1541168306963"></p>
+<p>设S<sub>1</sub> 的6位输入b<sub>1</sub>b<sub>2</sub>b<sub>3</sub>b<sub>4</sub>b<sub>5</sub>b<sub>6</sub> = 101100，则：</p>
+<ul>
+<li>n = (b<sub>1</sub>b<sub>6</sub>)<sub>10</sub> = (10)<sub>10</sub> = 2</li>
+<li>m = (b<sub>2</sub>b<sub>3</sub>b<sub>4</sub>b<sub>5</sub>)<sub>10</sub>  = (0110)<sub>10</sub> = 6</li>
+<li>[ S<sub>1</sub> ]<sub>2,6</sub>可通过上表得知是2</li>
+<li>2 = (0010)<sub>2</sub>即为输出</li>
+</ul>
+<h3 id="交换置换W"><a href="#交换置换W" class="headerlink" title="交换置换W"></a>交换置换W</h3><p>将第十六轮迭代生成的串L<sub>16</sub>R<sub>16</sub><strong>交换</strong>位置，输出R<sub>16</sub>L<sub>16</sub></p>
+<h3 id="逆置换IP-1"><a href="#逆置换IP-1" class="headerlink" title="逆置换IP-1"></a>逆置换IP<sup>-1</sup></h3><p>操作类似于IP置换，只是换了置换表为IP逆置换表</p>
+<h2 id="模块分解"><a href="#模块分解" class="headerlink" title="模块分解"></a>模块分解</h2><p>根据DES算法特点，我将算法分解为以下几个模块：</p>
+<ol>
+<li><p>进制转换<code>convert</code>：用于8位的字符串和64位的二进制01字符串互相转换</p>
+</li>
+<li><p>DES总体结构<code>des</code>：实现DES算法的总体结构，利用到了辅助模块：</p>
+<ul>
+<li>循环左移<code>leftshift</code></li>
+<li>生成子密钥<code>createkey</code></li>
+</ul>
+<p>同时在des中会按需调用其他模块，用以算法实现</p>
+</li>
+<li><p>全局变量<code>globalVar</code>：存放DES算法中需要用到的各种表(如IP置换表)</p>
+</li>
+<li><p>T迭代<code>iteration</code>：描述16轮迭代过程，其中用到了辅助模块：</p>
+<ul>
+<li>轮函数<code>feistel</code></li>
+</ul>
+</li>
+<li><p>置换<code>transform</code>：进行各种置换：IP置换、IP逆置换、PC-1置换、PC-2置换、E-扩展置换、P-置换</p>
+</li>
+<li><p>测试<code>main</code>：进行算法的测试，查看算法是否正确</p>
+</li>
+</ol>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>C++中有<code>bitset</code>这个类库来管理一系列的bit位，但本实验中为了输入输出转换方便，我使用了<code>char</code>来存放一个bit位，用到的其他数据结构只有<code>string</code></p>
+<p>输入的明文是<code>string</code>，经过<code>convert</code>模块转换后成为了每组64位的二进制字符串，字符串用<code>char</code>数组表示，因此最后得到的密文也是每组64位的二进制字符串</p>
+<p>密文经过<code>convert</code>模块转换后成为<code>string</code></p>
+<p>算法中还需要自己定义一些数据结构，即各种表，都是二维/三维的<code>char</code>数组</p>
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p>源代码地址：<a href="https://github.com/chenf99/DES/tree/master/C%2B%2B" target="_blank" rel="noopener">https://github.com/chenf99/DES/tree/master/C%2B%2B</a></p>
+<h2 id="编译运行结果"><a href="#编译运行结果" class="headerlink" title="编译运行结果"></a>编译运行结果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\11638\Desktop\DES\C++&gt; g++ .\main.cpp -o des</span><br><span class="line">PS C:\Users\11638\Desktop\DES\C++&gt; ./des</span><br><span class="line">plain:TAKERS Championship</span><br><span class="line">encrypt:▊噴。償挒皷煗硵柊</span><br><span class="line">decrypt:TAKERS Championship</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102233423.png" alt=""></p>
 
       
     </div>
+    
+    
+    
 
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DES/" rel="tag"> <i class="fa fa-tag"></i> DES</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/leetcode-374/" rel="next" title="leetcode-374">
+                <i class="fa fa-chevron-left"></i> leetcode-374
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/leetcode/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/leetcode/">1</a><a class="page-number" href="/categories/leetcode/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -394,6 +588,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -414,8 +619,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +693,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法概述"><span class="nav-number">1.</span> <span class="nav-text">算法概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总体结构"><span class="nav-number">2.</span> <span class="nav-text">总体结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分解明文"><span class="nav-number">2.1.</span> <span class="nav-text">分解明文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始置换IP"><span class="nav-number">2.2.</span> <span class="nav-text">初始置换IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16轮迭代T"><span class="nav-number">2.3.</span> <span class="nav-text">16轮迭代T</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feistel函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">Feistel函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成子密钥"><span class="nav-number">2.3.2.</span> <span class="nav-text">生成子密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S-盒"><span class="nav-number">2.3.3.</span> <span class="nav-text">S-盒</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换置换W"><span class="nav-number">2.4.</span> <span class="nav-text">交换置换W</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆置换IP-1"><span class="nav-number">2.5.</span> <span class="nav-text">逆置换IP-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块分解"><span class="nav-number">3.</span> <span class="nav-text">模块分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码"><span class="nav-number">5.</span> <span class="nav-text">源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译运行结果"><span class="nav-number">6.</span> <span class="nav-text">编译运行结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -627,6 +857,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -678,6 +912,30 @@
       </style>
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: 'DES算法实现', 
+            owner: 'chenf99',
+            repo: 'chenf99.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '09982819c2adc829ebb344300dbe898ee05e5e05',
+            
+                client_id: '66096c0f502912f41ec7'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
