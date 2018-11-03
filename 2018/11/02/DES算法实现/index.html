@@ -98,9 +98,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102095327.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102214314.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102222927.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/02/DES算法实现/img/1541168306963.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/1541168306963.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102233423.png">
-<meta property="og:updated_time" content="2018-11-02T15:34:43.365Z">
+<meta property="og:updated_time" content="2018-11-03T01:41:47.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DES算法实现">
 <meta name="twitter:description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法概述DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-02T23:34:43+08:00">
-                2018-11-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-03T09:41:47+08:00">
+                2018-11-03
               </time>
             
           </span>
@@ -414,6 +414,7 @@
       
         <p>本文阐述DES算法的基本原理及其C++实现方法，并给出源代码</p>
 <h2 id="算法概述"><a href="#算法概述" class="headerlink" title="算法概述"></a>算法概述</h2><p>DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样64位长度的密文。<br>DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。虽然56位的密钥对于现在来说加密强度不够，但是可以通过多次DES加密来加强加密强度。<br>DES 算法的基本过程是换位和置换。 </p>
+<a id="more"></a>
 <h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><p>DES算法的总体结构如图所示：</p>
 <p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181102093507.png" alt=""></p>
 <p>加密和解密过程都适用于上图，唯一的差别在于<strong>子密钥的调度顺序不同</strong>：</p>
@@ -472,7 +473,7 @@
 <p>在这里要注意，<strong>行号和列号都是从0开始的</strong>，这一点与其他地方不同</p>
 <p>用一个例子来说明：</p>
 <p>S<sub>1</sub>盒的表如图所示：</p>
-<p><img src="img/1541168306963.png" alt="1541168306963"></p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/1541168306963.png" alt=""></p>
 <p>设S<sub>1</sub> 的6位输入b<sub>1</sub>b<sub>2</sub>b<sub>3</sub>b<sub>4</sub>b<sub>5</sub>b<sub>6</sub> = 101100，则：</p>
 <ul>
 <li>n = (b<sub>1</sub>b<sub>6</sub>)<sub>10</sub> = (10)<sub>10</sub> = 2</li>
