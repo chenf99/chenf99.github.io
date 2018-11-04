@@ -312,7 +312,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/04/热身报告/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/11/04/热身报告/" itemprop="url">区块链热身报告</a></h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:26:33+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:29:50+08:00">
                 2018-11-04
               </time>
             
@@ -340,12 +340,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-04T20:23:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-04T20:31:31+08:00">
                 2018-11-04
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -394,178 +416,16 @@
 
       
         
-          
-            <h1 id="区块链project热身报告"><a href="#区块链project热身报告" class="headerlink" title="区块链project热身报告"></a>区块链project热身报告</h1><h2 id="安装以太坊"><a href="#安装以太坊" class="headerlink" title="安装以太坊"></a>安装以太坊</h2><p>Geth是以太坊智能合约开发中最常用的工具，执行在GO上运行的完整以太坊节点，通过Geth，我们可以实现以太坊的各种功能，如账户的新建、编辑、删除，开启挖矿，以太币的转移，智能合约的部署和执行等等。</p>
+          <h1 id="区块链project热身报告"><a href="#区块链project热身报告" class="headerlink" title="区块链project热身报告"></a>区块链project热身报告</h1><h2 id="安装以太坊"><a href="#安装以太坊" class="headerlink" title="安装以太坊"></a>安装以太坊</h2><p>Geth是以太坊智能合约开发中最常用的工具，执行在GO上运行的完整以太坊节点，通过Geth，我们可以实现以太坊的各种功能，如账户的新建、编辑、删除，开启挖矿，以太币的转移，智能合约的部署和执行等等。</p>
 <h4 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h4><p>在<a href="https://geth.ethereum.org/downloads/" target="_blank" rel="noopener">官网</a>下载安装包即可(需翻墙)，安装过程会自动配置环境变量，在cmd中使用<code>geth version</code>可以查看是否安装成功</p>
 <h4 id="ubuntu下安装"><a href="#ubuntu下安装" class="headerlink" title="ubuntu下安装"></a>ubuntu下安装</h4><p>同样去官网下载对应版本，这是一个tar.gz包，下载后解压即可得到geth可执行文件，配置好环境变量就可以使用了</p>
-<h2 id="私有链搭建"><a href="#私有链搭建" class="headerlink" title="私有链搭建"></a>私有链搭建</h2><p>进入到为搭建私有链创建的文件夹<code>privatechain</code>后，执行以下操作</p>
-<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>要搭建私有链，首先需要编写创始区块配置文件，命名为<code>genesis.json</code>，内容如下:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"chainId"</span>: <span class="number">10</span>, </span><br><span class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">  <span class="attr">"alloc"</span>      : &#123;&#125;,</span><br><span class="line">  <span class="attr">"coinbase"</span>   : <span class="string">"0x0000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"difficulty"</span> : <span class="string">"0x20000"</span>,</span><br><span class="line">  <span class="attr">"extraData"</span>  : <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"gasLimit"</span>   : <span class="string">"0xffffffff"</span>,</span><br><span class="line">  <span class="attr">"nonce"</span>      : <span class="string">"0x0000000000000042"</span>,</span><br><span class="line">  <span class="attr">"mixhash"</span>    : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"parentHash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  <span class="attr">"timestamp"</span>  : <span class="string">"0x00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要注意几点：</p>
-<ul>
-<li><p>chainId不能为0，否则部署智能合约时会出错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invalid sender undefined</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>gaslimit不能太小，否则部署智能合约时会报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: exceeds block gas limit undefined</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>difficulty会影响到你节点的挖矿速度</p>
-</li>
-</ul>
-<h4 id="初始化私有链"><a href="#初始化私有链" class="headerlink" title="初始化私有链"></a>初始化私有链</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir data0 init genesis.json</span><br></pre></td></tr></table></figure>
-<p>这条命令表示初始化私有链到文件夹data0中，这条链的数据存放在data0里，并根据<code>genesis.json</code>中的内容把创世区块写入区块链，通过log信息中的<code>Successfully wrote genesis state</code>我们知道初始化成功。</p>
-<p>初始化后的初始化成功后的目录如下：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104000614.png" alt=""></p>
-<p>其中geth/chaindata中存放的是区块数据，keystore中存放的是账户数据。</p>
-<h4 id="启动私有链节点"><a href="#启动私有链节点" class="headerlink" title="启动私有链节点"></a>启动私有链节点</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir data0 --networkid 1108 console</span><br></pre></td></tr></table></figure>
-<p><code>geth console</code>，表示启动节点并进入交互式控制台，控制台是一个交互式的Javascript执行环境</p>
-<p>–-datadir选项指定使用data0作为数据目录，即运行我们前面初始化的那条私有链</p>
-<p>–-networkid选项指定这个私有链的网络id为1108。网络id在连接到其他节点的时候会用到，以太坊公网的网络id是1，为了不与公有链网络冲突，运行私有链节点的时候要指定自己的网络id</p>
-<h4 id="一些简单操作"><a href="#一些简单操作" class="headerlink" title="一些简单操作"></a>一些简单操作</h4><p>查看账户</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;eth.accounts</span><br></pre></td></tr></table></figure>
-<p>创建账户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;personal.newAccount()</span><br><span class="line">&gt; Passphrase:</span><br><span class="line">&gt; Repeat passphrase:</span><br></pre></td></tr></table></figure>
-<p>查看账户余额</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBalance(eth.accounts[0])</span><br></pre></td></tr></table></figure>
-<p>启动&amp;停止挖矿</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; miner.start(10)<span class="comment">#参数10表示挖矿使用的线程数</span></span><br><span class="line">&gt; miner.stop()：</span><br></pre></td></tr></table></figure>
-<p>解锁账户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; personal.unlockAccount(eth.accounts[0])</span><br></pre></td></tr></table></figure>
-<p>发送交易</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; amount = web3.toWei(10,<span class="string">'ether'</span>)</span><br><span class="line">&gt; eth.sendTransaction(&#123;from:eth.accounts[0],to:eth.accounts[1],value:amount&#125;)<span class="comment">#这个交易表示从账户0向账户1转账10个以太币</span></span><br></pre></td></tr></table></figure>
-<h2 id="私有链节点加入"><a href="#私有链节点加入" class="headerlink" title="私有链节点加入"></a>私有链节点加入</h2><p>要向私有链中加入节点，我们需要同时运行两个节点，同时启动节点的命令是有要求的，我启动两个节点(同一台电脑)的命令分别为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --networkid 1108 --nodiscover --datadir data0 --port 30303 --rpc --rpcapi net,eth,web3,personal --rpcport 8545 --rpcaddr localhost --verbosity 6 console 2&gt;&gt;geth0.log --ipcpath <span class="string">"geth0.rpc"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --networkid 1108 --nodiscover --datadir data1 --port 55554 --rpc --rpcapi net,eth,web3,personal --rpcport 8101 --rpcaddr localhost --verbosity 6  console 2&gt;&gt;geth1.log --ipcpath <span class="string">"geth0.rpc"</span></span><br></pre></td></tr></table></figure>
-<p>当然，首先得搭建两个节点data0和data1.</p>
-<p>参数解释：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--nodiscover 关闭p2p网络的自动发现，需要手动添加节点，这样有利于我们隐藏私有网络</span><br><span class="line">--datadir 区块链数据存储目录</span><br><span class="line">--port  网络监听端口，默认30303</span><br><span class="line">--networkid 网络标识，私有链取一个大于4的随意的值</span><br><span class="line">--rpc 启用ipc服务</span><br><span class="line">--rpcport ipc服务端口，默认端口号8545</span><br><span class="line">--rpcapi 表示可以通过ipc调用的对象</span><br><span class="line">--rpcaddr ipc监听地址，默认为127.0.0.1，只能本地访问</span><br><span class="line">console 打开一个可交互的javascript环境</span><br></pre></td></tr></table></figure>
-<p>这之中要注意的几个地方是：</p>
-<ul>
-<li>端口号必须不同</li>
-<li>rpc端口号必须不同</li>
-<li>ipcpath必须不同</li>
-</ul>
-<p>进入了Javascript Console之后，首先在第一个节点data0那执行命令查看enode：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin.nodeInfo.enode</span><br></pre></td></tr></table></figure>
-<p>然后在第二个节点data1那执行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin.addPeer(&quot;xxx&quot;)</span><br></pre></td></tr></table></figure>
-<p>括号内填查看到的data0的enode信息，返回true即可成功加入节点，加入后data1就会自动开始同步data0的所有区块。</p>
-<p>之后可以使用以下命令来查看节点是否添加成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.peerCount</span><br><span class="line">admin.peers</span><br></pre></td></tr></table></figure>
-<p>在data1使用<code>eth.blockNumber</code>来查看区块是否同步成功。</p>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><ol>
-<li>windows下节点同步可能会失败，所以最好在Linux下进行加入节点的操作</li>
-<li>要保证两个节点在同一个区块链上工作的话首先要保证genesis创世区块链是一样的，所以注意使用同样的genesis.json文件来创建．</li>
-</ol>
-<h2 id="解释getBlock字段"><a href="#解释getBlock字段" class="headerlink" title="解释getBlock字段"></a>解释getBlock字段</h2><p>使用<code>getBlock</code>来得到区块相关信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> eth.getBlock(0)</span><br><span class="line">&#123;</span><br><span class="line">  difficulty: 131072,</span><br><span class="line">  extraData: <span class="string">"0x"</span>,</span><br><span class="line">  gasLimit: 4294967295,</span><br><span class="line">  gasUsed: 0,</span><br><span class="line">  <span class="built_in">hash</span>: <span class="string">"0x04786260f9e2b8a341a6a07949d74365c53bc4fd1edb00ff3b5f209f86906579"</span>,</span><br><span class="line">  logsBloom: <span class="string">"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  miner: <span class="string">"0x0000000000000000000000000000000000000000"</span>,</span><br><span class="line">  mixHash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  nonce: <span class="string">"0x0000000000000042"</span>,</span><br><span class="line">  number: 0,</span><br><span class="line">  parentHash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</span><br><span class="line">  receiptsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</span><br><span class="line">  sha3Uncles: <span class="string">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,</span><br><span class="line">  size: 508,</span><br><span class="line">  stateRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</span><br><span class="line">  timestamp: 0,</span><br><span class="line">  totalDifficulty: 131072,</span><br><span class="line">  transactions: [],</span><br><span class="line">  transactionsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</span><br><span class="line">  uncles: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参数为0，查看的是创世区块，也可以把参数设为”latest”来查看最新区块。</p>
-<ul>
-<li>difficulty：当前块的难度。</li>
-<li>extraData：包含这个区块的任意字节相关数据。</li>
-<li>gasLimit：当前区块允许使用的最大gas，这个值是我们<code>genesis.json</code>中的gasLimit值。</li>
-<li>gasUsed：当前区块累计使用的总的gas。</li>
-<li>hash：区块的哈希串。当这个区块处于pending将会返回null。</li>
-<li>logsBloom：由日志信息组成的一个Bloom过滤器 （数据结构）。当这个区块处于pending将会返回null。</li>
-<li>miner：这个区块获得奖励的矿工。</li>
-<li>mixHash：一个Hash值，当与nonce组合时，证明此区块已经执行了足够的计算</li>
-<li>nonce：在挖矿过程中起作用，POW生成的哈希。当这个区块处于pending将会返回null。</li>
-<li>number：区块号。当这个区块处于pending将会返回null。</li>
-<li>parentHash：父区块的哈希值。由于这是创始区块，因此该值为0。</li>
-<li>receiptsRoot：包含此区块所列的所有交易收据的树的根节点Hash值</li>
-<li>sha3Uncles：叔区块的哈希值。</li>
-<li>size：当前这个块的字节大小。</li>
-<li>stateRoot：区块的最终状态前缀树的根。</li>
-<li>timestamp：区块打包时的unix时间戳。</li>
-<li>totalDifficulty：区块链到当前块的总难度。</li>
-<li>transactions：交易对象。或者是32字节的交易哈希。</li>
-<li>transactionsRoot：包含此区块所列的所有交易的树的根节点Hash值</li>
-<li>uncles：叔哈希的数组。</li>
-</ul>
-<h4 id="叔块是什么？"><a href="#叔块是什么？" class="headerlink" title="叔块是什么？"></a>叔块是什么？</h4><p>在上面的区块中有叔块的信息，那么叔块是什么呢？</p>
-<p>我们都知道在挖矿过程中，只有最长的那条链才会被所有节点所承认，挖到在最长链的那些区块的矿工才能获得奖励。如果一个块不是最长链的一部分，那么它被称为是“孤块”。在比特币中，孤块没有意义，随后将被抛弃，发现这个孤块的矿工也拿不到采矿相关的奖励。</p>
-<p>根据Ethereum的GHOST协议，不认为孤块没有价值，而是会给与发现孤块的矿工以回报。在以太坊中，孤块被称为“叔块”(uncle block)，它们可以为主链的安全作出贡献。</p>
-<p>由于GHOST协议支付报酬给叔块，这激励了矿工在新发现的块中去引用叔块。引用叔块使主链更重。在比特币，最长的链是主链。在以太坊中，主链是指最重的链</p>
-<h2 id="解释日志输出"><a href="#解释日志输出" class="headerlink" title="解释日志输出"></a>解释日志输出</h2><p>通过在启动私有链节点时在命令最后加上<code>2 &gt;&gt;xxx.log</code>即可把日志输出到log文件中，通过设置选项<code>--verbosity n</code>可以设置日志的程度。</p>
-<p>我选取了一些日志进行解释：</p>
-<h4 id="日志1"><a href="#日志1" class="headerlink" title="日志1"></a>日志1</h4><p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104195036.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104195848.png" alt=""></p>
-<p>这个日志是我在给私有链添加节点时的日志输出，可以看到，执行命令后的第一个日志输出就是<code>Adding p2p peer</code>，表示加入节点。<code>connnection set up</code>表示建立连接，之后直到<code>Ethereum peer connected</code>，连接成功。然后就要开始为节点上区块链的同步做准备了，<code>Block synchronisation started</code>表示区块同步开始。此后要经过一系列的准备工作，比如获取链高度、下载区块体、获取区块头…最后可以看到一连串的<code>Inserted new block</code>，这就表示同步区块正式开始啦，可以从右边的number得知同步进度。</p>
-<h4 id="日志2"><a href="#日志2" class="headerlink" title="日志2"></a>日志2</h4><p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104200241.png" alt=""></p>
-<p>这个日志是挖矿的日志。一开始的<code>Updated mining threads</code>表示更新挖矿的线程，右边可以看到线程数量为10，这是在<code>miner.start(10)</code>中设置的。<code>Etherbase automatically configured</code>表示使用默认的coinbase，默认的是本地账户中的第一个账户，即<code>eth.accounts[0]</code>，挖矿所得到的所有奖励都会进入这个账户中。之后<code>Commit new mining work</code>表示挖矿正式开始，那个🔨开头的日志说明成功挖到了矿，可以从右边的number看到挖到区块的数目。</p>
-<h4 id="日志3"><a href="#日志3" class="headerlink" title="日志3"></a>日志3</h4><p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104201450.png" alt=""></p>
-<p>这个简短的日志是进行一笔交易的日志，不知道为啥设置verbosity为6也还是看不到更具体的信息。<code>Pooled new future transaction</code>表示提交到交易缓冲池，<code>Promoting queued transaction</code>表示选择一部分交易进入pending队列进行处理，<code>Submitted transaction`</code>Broadcast transaction<code>表示交易被成功处理并提交，最后的</code>Broadcast transaction`表示把这笔交易广播出去。</p>
-<h2 id="部署智能条约"><a href="#部署智能条约" class="headerlink" title="部署智能条约"></a>部署智能条约</h2><h4 id="编写合约"><a href="#编写合约" class="headerlink" title="编写合约"></a>编写合约</h4><p>首先编写智能合约，用solidity语言实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">contract Mortal &#123;</span><br><span class="line">    <span class="comment">/* Define variable owner of the type address */</span></span><br><span class="line">    address owner;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* This function is executed at initialization and sets the owner of the contract */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Mortal</span>(<span class="params"></span>) </span>&#123; owner = msg.sender; &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* Function to recover the funds on the contract */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">kill</span>(<span class="params"></span>) </span>&#123; <span class="keyword">if</span> (msg.sender == owner) selfdestruct(owner); &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">contract Greeter is Mortal &#123;</span><br><span class="line">    <span class="comment">/* Define variable greeting of the type string */</span></span><br><span class="line">    string greeting;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* This runs when the contract is executed */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Greeter</span>(<span class="params">string _greeting</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        greeting = _greeting;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* Main function */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>) <span class="title">constant</span> <span class="title">returns</span> (<span class="params">string</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> greeting;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于Solidity同样具有继承的特性，通过只声明Greeter是Mortal的，Greeter就可以继承”Mortal”合约的所有特征。</p>
-<p>这段代码的主函数是<code>greet()</code>，我们之后将调用这个函数来调用智能合约。</p>
-<h4 id="编译合约"><a href="#编译合约" class="headerlink" title="编译合约"></a>编译合约</h4><p>使用<a href="http://remix.ethereum.org/#optimize=true&amp;version=soljson-v0.4.21+commit.dfe3193c.js" target="_blank" rel="noopener">在线编译器remix</a>来编译(需要翻墙)：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104093650.png" alt=""></p>
-<p>首先确定右窗格中选择的是Greeter而不是Mortal，然后点击Details来获取编译后的代码，复制WEB3DEPLOY中的代码：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104093900.png" alt=""></p>
-<p>保存到js文件中，命名为contract.js，并修改第一行为：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _greeting = <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
-<h4 id="部署合约"><a href="#部署合约" class="headerlink" title="部署合约"></a>部署合约</h4><p>执行<code>loadScript(&quot;contract.js&quot;)</code>导入文件，报错如下：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104094402.png" alt=""></p>
-<p>这是因为我们必须要先解锁账户，因为我们需要支付部署合约的GAS费用，解锁后继续执行：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104095647.png" alt=""></p>
-<p>执行<code>eth.getCode(greeter.address)</code>来验证代码是否部署成功：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104095213.png" alt=""></p>
-<p>报错是因为部署合约需要挖矿，启动挖矿后再次执行：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104095324.png" alt=""></p>
-<p>部署成功！</p>
-<h4 id="调用合约"><a href="#调用合约" class="headerlink" title="调用合约"></a>调用合约</h4><p>执行<code>greeter.greet()</code>，我们可以看到输出：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181104095502.png" alt=""></p>
-<p>由于这个调用没引起在区块链上的任何变化，因此它会立即返回并且无需任何Gas费用</p>
-<h4 id="使用其他节点调用合约"><a href="#使用其他节点调用合约" class="headerlink" title="使用其他节点调用合约"></a>使用其他节点调用合约</h4><p>这首先要求添加节点到私有链中，因此转到ubuntu操作：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/Screenshot%20from%202018-11-04%2019-00-47.png" alt=""></p>
-<p>上图是在data0进行部署合约的操作</p>
-<p>然后，我们要知道通过其他节点调用这个合约需要两个信息：</p>
-<ol>
-<li>合同所在地址</li>
-<li>ABI（应用程序二进制接口），这是一种用户手册，描述合同功能的名称以及如何将它们调用到您的JavaScript控制台</li>
-</ol>
-<p>获取合同所在地址很简单，<code>greeter.address;</code>即可</p>
-<p>要获取ABI，就需要去Remix官网，同样在Detail中获得，复制ABI文本框即可，然后暂时保存到一个abi.txt文件。如果我们想直接把它复制到终端是不行的，因为它含有换行符，因此需要去掉换行符(替换为空格)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat abi.txt | tr <span class="string">'\n'</span> <span class="string">' '</span></span><br></pre></td></tr></table></figure>
-<p>然后就可以把abi.txt中内容复制到以太坊交互式控制台中，把这段内容赋值给abi，查看赋值后abi的值：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/Screenshot%20from%202018-11-04%2019-08-16.png" alt=""></p>
-<p>在data1中执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myContract = web3.eth.contract(abi).at(address)</span><br></pre></td></tr></table></figure>
-<p>address为合约地址</p>
-<p>查看myContract以及调用合约：</p>
-<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/Screenshot%20from%202018-11-04%2019-08-20.png" alt=""></p>
-<p>在节点data1中调用合约好像需要先解锁账户，但是这里我没有解锁也成功了，我想可能是因为这个调用不要消耗Gas值吧</p>
-<h2 id="解释交易字段"><a href="#解释交易字段" class="headerlink" title="解释交易字段"></a>解释交易字段</h2><p>首先解锁账户0：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;  personal.unlockAccount(eth.accounts[0])</span><br><span class="line">Unlock account 0xb01a469b117268418619e61f1b1a6e2fc7e4e7ce</span><br><span class="line">Passphrase:</span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>发送交易(从账户0向账户1发送10个以太币)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; amout = web3.toWei(10, <span class="string">'ether'</span>)</span><br><span class="line"><span class="string">"10000000000000000000"</span></span><br><span class="line">&gt;  eth.sendTransaction(&#123;from:eth.accounts[0],to:eth.accounts[1],value:amout&#125;)</span><br><span class="line">INFO [11-04|16:56:58.227] Setting new <span class="built_in">local</span> account                address=0xB01A469b117268418619E61f1B1a6E2fc7e4E7cE</span><br><span class="line">INFO [11-04|16:56:58.235] Submitted transaction                    fullhash=0x5eeae4989feab2ef1d3a3c68f3cba9a5a9adafcaef4c4af79ba3088f01df0e76 recipient=0x20949144E5A4590857726BD3B4D95dce04731e78</span><br></pre></td></tr></table></figure>
-<p>最后返回的那个字符串即是交易的地址，可以通过<code>getTransaction</code>来查看交易信息，需要注意，此时交易还处于Pending状态(已提交但还未被处理的交易)，需要启动挖矿:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.start(1);admin.sleepBlocks(1);miner.stop();</span><br></pre></td></tr></table></figure>
-<p>这样交易就得到处理，使用<code>getTransaction</code>来查看交易：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getTransaction(<span class="string">"0x5eeae4989feab2ef1d3a3c68f3cba9a5a9adafcaef4c4af79ba3088f01df0e76"</span>)</span><br><span class="line">&#123;</span><br><span class="line">  blockHash: <span class="string">"0x897bbbd6b0aeffadb707ad7b37149e93428c1b361809772b6ef99de96713f1e0"</span>,</span><br><span class="line">  blockNumber: 13,</span><br><span class="line">  from: <span class="string">"0xb01a469b117268418619e61f1b1a6e2fc7e4e7ce"</span>,</span><br><span class="line">  gas: 90000,</span><br><span class="line">  gasPrice: 1000000000,</span><br><span class="line">  <span class="built_in">hash</span>: <span class="string">"0x5eeae4989feab2ef1d3a3c68f3cba9a5a9adafcaef4c4af79ba3088f01df0e76"</span>,</span><br><span class="line">  input: <span class="string">"0x"</span>,</span><br><span class="line">  nonce: 0,</span><br><span class="line">  r: <span class="string">"0x64f0b414949135360554da5165d5115d0df842776d323861121c6dab36e49255"</span>,</span><br><span class="line">  s: <span class="string">"0x62b9702c7b734a7521f7d1853965c58f54bfe84f0d8273fd52f4381aa8b32524"</span>,</span><br><span class="line">  to: <span class="string">"0x20949144e5a4590857726bd3b4d95dce04731e78"</span>,</span><br><span class="line">  transactionIndex: 0,</span><br><span class="line">  v: <span class="string">"0x37"</span>,</span><br><span class="line">  value: 10000000000000000000</span><br><span class="line">&#125;</span><br><span class="line">&gt;  eth.accounts</span><br><span class="line">[<span class="string">"0xb01a469b117268418619e61f1b1a6e2fc7e4e7ce"</span>, <span class="string">"0x20949144e5a4590857726bd3b4d95dce04731e78"</span>]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>blockHash: 交易所在区块的哈希值。当这个区块处于pending将会返回null。</li>
-<li>blockNumber:交易所在区块的块号。当这个区块处于pending将会返回null。</li>
-<li>from: 交易发起者的地址。在这里为accouts[0]。</li>
-<li>gas:交易发起者提供的gas。</li>
-<li>gasPrice:交易发起者配置的gas价格，单位是wei。</li>
-<li>hash:交易的哈希值。</li>
-<li>input:交易附带的数据。</li>
-<li>nonce:交易的发起者在之前进行过的交易数量。</li>
-<li>r:用于产生标识交易发生者的签名(ECDSA签名值)</li>
-<li>s:用于产生标识交易发生者的签名(ECDSA签名值)</li>
-<li>to:交易接收者的地址。当这个区块处于pending将会返回null，如果是部署智能合约的交易，这个值也是null。在这里显示为accouts[1]。</li>
-<li>transactionIndex:交易在区块中的序号。当这个区块处于pending将会返回null。</li>
-<li>v:用于产生标识交易发生者的签名(ECDSA签名值)</li>
-<li>value:交易附带的货币量，单位为Wei。在这里即是转账的值</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://learnblockchain.cn/2018/03/18/create_private_blockchain/" target="_blank" rel="noopener">如何搭建以太坊私有链</a></p>
-<p><a href="https://www.cnblogs.com/ycx95/p/9181941.html" target="_blank" rel="noopener">添加私有链节点</a></p>
-<p><a href="https://blog.csdn.net/Jade0214/article/details/80043776" target="_blank" rel="noopener">部署智能合约</a></p>
-<p><a href="https://blog.csdn.net/superswords/article/details/76445278" target="_blank" rel="noopener">叔块的概念</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/热身报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1024,7 +884,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1035,7 +895,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
