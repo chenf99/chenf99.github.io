@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode-152]]></title>
+    <url>%2F2018%2F11%2F11%2Fleetcode-152%2F</url>
+    <content type="text"><![CDATA[题目Maximum Product Subarray Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product. Example 1: 1234&gt; Input: [2,3,-2,4]&gt; Output: 6&gt; Explanation: [2,3] has the largest product 6.&gt; Example 2: 1234&gt; Input: [-2,0,-1]&gt; Output: 0&gt; Explanation: The result cannot be 2, because [-2,-1] is not a subarray.&gt; 分析这道题的意思是让我们计算出一个整数数组中乘积最大的子序列的乘积，要注意子序列必须是连续的。 这道题的难点在于负数的存在，可以让一个本来乘积为负数的子序列在增加一个元素后乘积为正，比如-2, 3, 4, 5, -3这个数组，如果没有最后的-3的话，答案就是60，子序列不能包含-2。但由于-3的存在，答案是360，子序列是整个数组。 这道题在leetcode中被划分为动态规划问题。 解法一既然这是一个动态规划问题，那首先我们就需要一个数组max[n]来记录以第i个数结尾的子序列的最大乘积(0 &lt;= i &lt; n)，类似于最大子序列和的问题。 那么对于max[i]，我们如何通过max[i - 1]来计算出max[i]呢？可能会想到类似于最大子序列和的解法，用max(max[i - 1] * nums[i], nums[i])来求解，即最大乘积要么就是第i个数，要么就是第i个数乘以原来的乘积。 这种解法是无法解决负数存在的问题的，比如上面那个例子。貌似我们不能从max[3](5结尾)来计算出max[4](-3结尾)的值，它们并没有直接的关系，因为max[3]没有把-2计算进去，而max[4]需要把-2计算进去。 如果我们不能通过上一个子问题的结果来计算下一个子问题的话，好像就不是动态规划了，因此肯定是计算max[i]的方法不对。 我们可以发现，-3会使结果变化的原因是前面子序列乘积的最小值是个负数，而且其绝对值是最大的乘积，因此新的结果就是原来乘积的最小值乘以-3。 想到这里就可以知道答案了，我们需要为以第i个数结尾的子序列维护最小乘积和最大乘积，这两个值同时用来计算以下一个数结尾的子序列的最小乘积和最大乘积。 代码123456789101112131415161718192021#include&lt;iostream&gt;#include&lt;vector&gt;using namespace std;class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int min[n], max[n]; min[0] = max[0] = nums[0]; //min[i],max[i]分别表示以第i个数结尾的子序列的最小/最大值 for (int i = 1; i &lt; n; ++i) &#123; min[i] = std::min(std::min(min[i - 1] * nums[i], nums[i]), max[i - 1] * nums[i]); max[i] = std::max(std::max(max[i - 1] * nums[i], nums[i]), min[i - 1] * nums[i]); &#125; int result = max[0]; for (int i = 1; i &lt; n; ++i) if (result &lt; max[i]) result = max[i]; return result; &#125;&#125;; 解法二同样地，我们可以为这个DP算法优化空间复杂度，不难发现，我们可以把记录子序列最小/最大值的min，max数组优化成单个元素，因为每次计算min[i]时要用到的都是min[i - 1]和max[i - 1]。 如果只用min来存以第i个数结尾的子序列的最小值的话，当我们在计算出min[i]之前，实际上min里存的是min[i - 1]的值，即上一轮循环的结果还没有被更新，可以用来计算这一轮的结果 要注意当计算出min之后，上一轮的min值就被覆盖了，而计算这一轮的max需要用到上一轮的min值，因此需要一个临时变量来存储上一轮的min值 优化后算法空间复杂度O(1)，时间复杂度O(n) 代码123456789101112131415161718192021#include&lt;iostream&gt;#include&lt;vector&gt;using namespace std;class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int result; int min, max; result = min = max = nums[0]; //min,max分别表示以第i个数结尾的子序列的最小/最大值 for (int i = 1; i &lt; n; ++i) &#123; int tmp = min; min = std::min(std::min(min * nums[i], nums[i]), max * nums[i]); max = std::max(std::max(max * nums[i], nums[i]), tmp * nums[i]); if (result &lt; max) result = max; &#125; return result; &#125;&#125;; 总结这道题也是很典型的动态规划问题，难点在于由于负数的存在，最小乘积也是会影响到结果的，而我们一般只会想到要维护最大乘积的值，就比较难求解。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode-072]]></title>
     <url>%2F2018%2F11%2F04%2Fleetcode-072%2F</url>
     <content type="text"><![CDATA[题目Edit Distance Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2. You have the following 3 operations permitted on a word: Insert a character Delete a character Replace a character Example 1: 1234567&gt; Input: word1 = "horse", word2 = "ros"&gt; Output: 3&gt; Explanation: &gt; horse -&gt; rorse (replace 'h' with 'r')&gt; rorse -&gt; rose (remove 'r')&gt; rose -&gt; ros (remove 'e')&gt; Example 2: 123456789&gt; Input: word1 = "intention", word2 = "execution"&gt; Output: 5&gt; Explanation: &gt; intention -&gt; inention (remove 't')&gt; inention -&gt; enention (replace 'i' with 'e')&gt; enention -&gt; exention (replace 'n' with 'x')&gt; exention -&gt; exection (replace 'n' with 'c')&gt; exection -&gt; execution (insert 'u')&gt; 分析这道题是很经典的字符串编辑距离问题，是动态规划解决问题的一个典型例子。题目问的是我们通过一次只能增加、减少或替换一个字符的操作，最少几次操作能把两个字符串改成相同的字符串。 解法一使用动态规划来解决问题。 考虑长度为i的字符串str1和长度为j的字符串str2，用dist[i][j]来代表它们之间的编辑距离。 首先，容易知道，如果其中一个字符串为0，那么编辑距离就是另一个字符串的长度，即i = 0时 dist[0][j] = j，j = 0时dist[i][0] = i。 要计算dist[i][j]，我们考虑从str1和str2的最后一个字符(char1和char2)入手： 如果char1 == char2，那么dist[i][j] = dist[i - 1][j - 1]，这应该是很容易看出来的，最后一个字符相等，那么有没有它们对编辑距离都没有影响 如果char1 != char2，这时候可以对最后一个字符进行3个操作： 把char2替换成char1，那么dist[i][j] = 1 + dist[i - 1][j - 1]，这是因为替换后就相当于char1 == char2的情况了，因此只需要加上那替换的开销1 在str2最后加一个字符char1，那么dist[i][j] = 1 + dist[i - 1][j]，这相当于给str2加了一个长度，此时的char1 == char2，同样需要额外的开销1 删掉str2的最后一个字符char2，那么dist[i][j] = 1 + dist[i][j - 1]，这种情况相当于str2长度减1，当然就是要算dist[i][j - 1]了，同样需要额外开销1 上面对char2的操作也可以改成对char1的操作，但结果没有区别 根据上面的结论，很容易得到动态规划方程： 12dist[i][j] = min(1 + dist[i - 1][j], 1 + dist[i][j - 1], diff(char1, char2) + dist[i - 1][j - 1])//diff(char1, char2) = (char1 == char2) ? 0 : 1 根据动态规划可以写出下面的代码，时间复杂度O(mn)，空间复杂度O(mn)。 代码12345678910111213141516171819202122232425262728293031#include &lt;string&gt;#include &lt;iostream&gt;using std::min;using std::string;class Solution &#123;public: int minDistance(string word1, string word2) &#123; //对于长度为i的word1子串和长度为j的word2子串 //dist[i][j]表示这两个子串之间的编辑距离 int m = word1.length(), n = word2.length(); int dist[m + 1][n + 1]; for (int i = 0; i &lt;= m; ++i) &#123; for (int j = 0; j &lt;= n; ++j) &#123; if (i == 0) dist[i][j] = j; else if (j == 0) dist[i][j] = i; else dist[i][j] = __INT_MAX__; &#125; &#125; for (int i = 1; i &lt;= m; ++i) &#123; for (int j = 1; j &lt;= n; ++j) &#123; dist[i][j] = min(min(1 + dist[i - 1][j], 1 + dist[i][j - 1]), diff(word1[i - 1], word2[j - 1]) + dist[i - 1][j - 1]); &#125; &#125; return dist[m][n]; &#125;private: int diff(char c1, char c2) &#123; return !(c1 == c2); &#125;&#125;; 解法二很多DP算法都可以进行空间复杂度的优化，本题也不例外，通过优化，我们可以把空间花费降至线性。 考虑解法一中的双重循环，转换到如下表格的话，不难知道是一行行地算出结果的。在初始时表格第一行和第一列的值是确定的，这由前面的讨论可以知道。 考虑当计算到任意位置的dist[i][j]，我们可以由解法一算法得知，dist[i][j]取决于它左边、上面、以及左上角表格的值，现在我们可以考虑把空间压缩到一维了： dist[n]只存每一行的值，初始情况即第一行。 当要计算dist[j]时，由于我们是从左往右计算每一行的，所以左边的值就是dist[j - 1]，而上面的值就是dist[j](因为此时dist[j])还没有被覆盖，存放的仍是上一行的值，而dist[j - 1]就已经被覆盖，存放的是这一行的值。所以我们也能够知道，我们必须事先存储左上角的值，因为会被覆盖，左上角的值即在计算上一个dist[j]时未被覆盖的上面的值。 优化后的代码空间复杂度为O(n)，时间复杂度不变。 很多DP算法都可以通过这种画表格的方式来优化空间。 代码123456789101112131415161718192021222324252627282930#include &lt;string&gt;#include &lt;iostream&gt;using std::min;using std::string;class Solution &#123;public: int minDistance(string word1, string word2) &#123; //对于长度为i的word1子串和长度为j的word2子串 //dist[i][j]表示这两个子串之间的编辑距离 int m = word1.length(), n = word2.length(); if (m == 0) return n; if (n == 0) return m; int dist[n + 1]; for (int i = 0; i &lt;= n; ++i) dist[i] = i; int leftNor; for (int i = 1; i &lt;= m; ++i) &#123; leftNor = i - 1; dist[0] = i; for (int j = 1; j &lt;= n; ++j) &#123; int tmp = dist[j]; int diff = word1[i - 1] == word2[j - 1] ? 0 : 1; dist[j] = min(min(dist[j] + 1, dist[j - 1] + 1), diff + leftNor); leftNor = tmp; &#125; &#125; return dist[n]; &#125;&#125;;]]></content>
@@ -93,8 +104,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>Go</tag>
         <tag>配置环境</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -149,8 +160,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>配置环境</tag>
         <tag>linux</tag>
+        <tag>配置环境</tag>
       </tags>
   </entry>
   <entry>
