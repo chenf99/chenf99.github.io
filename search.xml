@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode-084]]></title>
+    <url>%2F2018%2F11%2F16%2Fleetcode-084%2F</url>
+    <content type="text"><![CDATA[题目Largest Rectangle in Histogram Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram. Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3]. The largest rectangle is shown in the shaded area, which has area = 10 unit. Example: 123&gt; Input: [2,1,5,6,2,3]&gt; Output: 10&gt; 分析这道题看起来和之前那道Trapping Rain Water很像，给的例题都有直方图，但这题要求的是直方图中能找到的最大矩形面积，要求连续的几个数数值越近越好，就能组成更大的面积，与之前那道正好相反。 解法一首先，最容易想到的解法就是对数组中的每个高度都求出对应的最大矩形面积，然后取最大值，即为答案。 要求固定高度h的最大矩形面积的话，我们需要遍历整个数组，然后记录每一个能够组成的高度为h的矩形面积，最后取最大值，伪代码如下： 123for i in heights do if (heights[i] &gt;= h) //这个元素作为当前矩形的一部分 else //该元素高度小于矩形高度，计算当前矩形面积 需要注意的几点： 计算矩形面积后要及时更新矩形的左右下标为初始值 当最后一个元素也大于矩形高度时，不能忽略这个矩形的高度 为了避免重复计算，可以用map来存储已经计算过的高度对应的面积 代码12345678910111213141516171819202122232425262728293031323334353637class Solution &#123;public: int largestRectangleArea(vector&lt;int&gt;&amp; heights) &#123; int result = 0; map&lt;int, int&gt;area; for (auto i : heights) &#123; //判断这个高度的矩形的面积是否被计算过 if (area.find(i) == area.end()) &#123; area.insert(std::pair&lt;int, int&gt;(i, calc(i, heights))); result = max(result, area[i]); &#125; &#125; return result; &#125;private: int calc(int h, const vector&lt;int&gt;&amp; heights) &#123; int left, right; left = right = -1; int area = 0; for (int i = 0; i &lt; heights.size(); ++i) &#123; //矩形左下标 if (heights[i] &gt;= h &amp;&amp; left == -1) left = right = i; //矩形右下标右移 else if (heights[i] &gt;= h) right++; //h小于矩形高度，计算当前最大矩形面积 else if (left != -1) &#123; area = max(area, (right - left + 1) * h); left = right = -1; &#125; &#125; //不要遗漏右下标为最后一个下标的矩形面积 if (right == heights.size() - 1) &#123; area = max(area, (right - left + 1) * h); &#125; return area; &#125;&#125;; 复杂度分析这种解法在最好情况下复杂度为O(2n)，即数组中所有元素值都相等时；最坏情况下复杂度为O(n2)，即数组中所有元素值都不相等时。 但是这种解法在leetcode上运行时间超过了1000ms，因此必须进行优化。 解法二上面那种解法在经过了使用map来避免重复计算后运行时间还是很高，这是因为计算每个高度对应的面积时都必须遍历整个数组，我们要从这一点入手来进行优化。 但是每个高度对应的面积之间貌似没有联系，不能通过一个值来推出其他值，因此我考虑换一种基本思路：计算每个包含当前元素的矩形面积，然后取最大值。这个计算要求我们从当前元素下标开始，分别向左和向右找第一个高度小于当前元素的下标，然后就是(right - left - 1) * height，伪代码如下： 123456for i in heights do for j = i - 1 to 0 do if (heights[j] &lt; heights[i]) left = j;break for j = i + 1 to 0 do if (heights[j] &lt; heights[i]) right = j;break result = max(result, (right - left - 1) * heights[i]) 这种基本思路的解法比解法一的复杂度还会稍微高一点，但是重点是它是可以优化的，因为相邻两个元素之间的left值和right值是有联系的： 假设从左往右遍历，如果当前元素高度大于它左边元素高度，那么它的left值就是左边元素的left值；否则，需要往左遍历去寻找left值。但是通过存储每个元素的left值和right值，可以简化这个遍历过程，伪代码如下： 12345678int left[n], right[n];for i in heights do if (heights[i] &gt; heights[i - 1]) left[i] = left[i - 1] else &#123; int tmp = left[i - 1] while (heights[i] &lt;= heights[tmp]) tmp = left[tmp] left[i] = tmp &#125; 因为元素j高度大于元素i高度，因此第一个高度小于元素i的下标一定&lt;=元素j的left值，通过利用数组，我们可以快速完成遍历，提高算法速度。 最终的算法需要遍历两次数组，分别求解出left和right数组，然后计算面积，可以把计算面积的过程放在求解right数组的循环种来减少运行时间。 代码123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: int largestRectangleArea(vector&lt;int&gt;&amp; heights) &#123; int result = 0; int n = heights.size(); if (n == 0) return 0; int left[n], right[n]; left[0] = -1; right[n - 1] = n; for (int i = 1; i &lt; n; ++i) &#123; if (heights[i] &gt; heights[i - 1]) left[i] = i - 1; else &#123; //找第一个小于当前元素的元素下标 int tmp = left[i - 1]; while (heights[i] &lt;= heights[tmp] &amp;&amp; tmp != -1) &#123; tmp = left[tmp]; &#125; left[i] = tmp; &#125; &#125; for (int i = n - 2; i &gt;= 0; --i) &#123; if (heights[i] &gt; heights[i + 1]) right[i] = i + 1; else &#123; //找第一个小于当前元素的元素下标 int tmp = right[i + 1]; while (heights[i] &lt;= heights[tmp] &amp;&amp; tmp != n) &#123; tmp = right[tmp]; &#125; right[i] = tmp; &#125; result = max(result, (right[i] - left[i] - 1) * heights[i]); &#125; result = max(result, (right[n - 1] - left[n - 1] - 1) * heights[n - 1]); return result; &#125;&#125;; 复杂度分析算法的复杂度在最坏情况下为O(n2)，但这种情况很难遇到，更一般的情况下可以逼近O(n)，在leetcode上运行时间为12ms。 总结第一种解法虽然利用map省去了重复计算，但是每一次计算的复杂度还是很高；而第二种解法利用每个矩形左右下标之间的联系，简化了计算的过程，使算法提速明显，因此我们在设计算法时要尽量利用已知来求解未知，简化计算过程。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode-300]]></title>
+    <url>%2F2018%2F11%2F11%2Fleetcode-300%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode-152]]></title>
     <url>%2F2018%2F11%2F11%2Fleetcode-152%2F</url>
     <content type="text"><![CDATA[题目Maximum Product Subarray Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product. Example 1: 1234&gt; Input: [2,3,-2,4]&gt; Output: 6&gt; Explanation: [2,3] has the largest product 6.&gt; Example 2: 1234&gt; Input: [-2,0,-1]&gt; Output: 0&gt; Explanation: The result cannot be 2, because [-2,-1] is not a subarray.&gt; 分析这道题的意思是让我们计算出一个整数数组中乘积最大的子序列的乘积，要注意子序列必须是连续的。 这道题的难点在于负数的存在，可以让一个本来乘积为负数的子序列在增加一个元素后乘积为正，比如-2, 3, 4, 5, -3这个数组，如果没有最后的-3的话，答案就是60，子序列不能包含-2。但由于-3的存在，答案是360，子序列是整个数组。 这道题在leetcode中被划分为动态规划问题。 解法一既然这是一个动态规划问题，那首先我们就需要一个数组max[n]来记录以第i个数结尾的子序列的最大乘积(0 &lt;= i &lt; n)，类似于最大子序列和的问题。 那么对于max[i]，我们如何通过max[i - 1]来计算出max[i]呢？可能会想到类似于最大子序列和的解法，用max(max[i - 1] * nums[i], nums[i])来求解，即最大乘积要么就是第i个数，要么就是第i个数乘以原来的乘积。 这种解法是无法解决负数存在的问题的，比如上面那个例子。貌似我们不能从max[3](5结尾)来计算出max[4](-3结尾)的值，它们并没有直接的关系，因为max[3]没有把-2计算进去，而max[4]需要把-2计算进去。 如果我们不能通过上一个子问题的结果来计算下一个子问题的话，好像就不是动态规划了，因此肯定是计算max[i]的方法不对。 我们可以发现，-3会使结果变化的原因是前面子序列乘积的最小值是个负数，而且其绝对值是最大的乘积，因此新的结果就是原来乘积的最小值乘以-3。 想到这里就可以知道答案了，我们需要为以第i个数结尾的子序列维护最小乘积和最大乘积，这两个值同时用来计算以下一个数结尾的子序列的最小乘积和最大乘积。 代码123456789101112131415161718192021#include&lt;iostream&gt;#include&lt;vector&gt;using namespace std;class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int min[n], max[n]; min[0] = max[0] = nums[0]; //min[i],max[i]分别表示以第i个数结尾的子序列的最小/最大值 for (int i = 1; i &lt; n; ++i) &#123; min[i] = std::min(std::min(min[i - 1] * nums[i], nums[i]), max[i - 1] * nums[i]); max[i] = std::max(std::max(max[i - 1] * nums[i], nums[i]), min[i - 1] * nums[i]); &#125; int result = max[0]; for (int i = 1; i &lt; n; ++i) if (result &lt; max[i]) result = max[i]; return result; &#125;&#125;; 解法二同样地，我们可以为这个DP算法优化空间复杂度，不难发现，我们可以把记录子序列最小/最大值的min，max数组优化成单个元素，因为每次计算min[i]时要用到的都是min[i - 1]和max[i - 1]。 如果只用min来存以第i个数结尾的子序列的最小值的话，当我们在计算出min[i]之前，实际上min里存的是min[i - 1]的值，即上一轮循环的结果还没有被更新，可以用来计算这一轮的结果 要注意当计算出min之后，上一轮的min值就被覆盖了，而计算这一轮的max需要用到上一轮的min值，因此需要一个临时变量来存储上一轮的min值 优化后算法空间复杂度O(1)，时间复杂度O(n) 代码123456789101112131415161718192021#include&lt;iostream&gt;#include&lt;vector&gt;using namespace std;class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int result; int min, max; result = min = max = nums[0]; //min,max分别表示以第i个数结尾的子序列的最小/最大值 for (int i = 1; i &lt; n; ++i) &#123; int tmp = min; min = std::min(std::min(min * nums[i], nums[i]), max * nums[i]); max = std::max(std::max(max * nums[i], nums[i]), tmp * nums[i]); if (result &lt; max) result = max; &#125; return result; &#125;&#125;; 总结这道题也是很典型的动态规划问题，难点在于由于负数的存在，最小乘积也是会影响到结果的，而我们一般只会想到要维护最大乘积的值，就比较难求解。]]></content>
@@ -104,8 +120,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>配置环境</tag>
         <tag>Go</tag>
+        <tag>配置环境</tag>
       </tags>
   </entry>
   <entry>
@@ -160,8 +176,8 @@
         <category>服务计算课程</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>配置环境</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
