@@ -95,11 +95,15 @@
 <meta property="og:description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法原理概述MD5即Message-Digest Algorithm 5 (信息-摘要算法 5) ，是一种被广泛使用的密码散列(hash)函数，它使用小端模式，输入任意不定长的消息，产生的是128位(16个字节)的散列值(hash value)，用于确保信息传输的完整性和一致性。 MD5算法不是足够安全的，可以找到两个不同的512位的块">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181207223747.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208110604.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208111339.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208111450.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208112048.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/helloworld.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181207201730.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/long%20str.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181207201908.png">
-<meta property="og:updated_time" content="2018-12-07T16:38:16.060Z">
+<meta property="og:updated_time" content="2018-12-08T03:23:56.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MD5算法实现">
 <meta name="twitter:description" content="本文阐述DES算法的基本原理及其C++实现方法，并给出源代码 算法原理概述MD5即Message-Digest Algorithm 5 (信息-摘要算法 5) ，是一种被广泛使用的密码散列(hash)函数，它使用小端模式，输入任意不定长的消息，产生的是128位(16个字节)的散列值(hash value)，用于确保信息传输的完整性和一致性。 MD5算法不是足够安全的，可以找到两个不同的512位的块">
@@ -348,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-08T00:38:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-08T11:23:56+08:00">
                 2018-12-08
               </time>
             
@@ -386,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.3k 字
+                  2.7k 字
                 </span>
               
 
@@ -434,7 +438,33 @@
 <h4 id="分块"><a href="#分块" class="headerlink" title="分块"></a>分块</h4><p>分块操作主要是为了把填充好的消息分割成每64字节一组，也可以表示成一组16个32位的字(bit32)。</p>
 <p>我使用<code>vector&lt;bit32&gt;</code>来存储每个分组里面的32位字，再用一个<code>vector</code>来存放所有的分组，因此最终分块后的消息存放在<code>vector&lt;vector&lt;bit32&gt; &gt;</code>中(<code>vector&lt;bit32&gt;</code>长度固定为16)</p>
 <p>需要注意，填充后的消息中按<code>byte</code>存储，因此需要把连续的4个<code>byte</code>转成<code>bit32</code>，这里又需要按照小端存储的模式，比如4个<code>byte</code>值分别为<code>0x01</code>,<code>0x02</code>,<code>0x03</code>,<code>0x04</code>，转成<code>bit32</code>的值为<code>0x04030201</code>。可以借助左移位运算符<code>&lt;&lt;</code>来实现。</p>
-<h4 id="循环压缩"><a href="#循环压缩" class="headerlink" title="循环压缩"></a>循环压缩</h4><p>这一部分包含了MD5算法进行加密的主要操作。</p>
+<h4 id="循环压缩"><a href="#循环压缩" class="headerlink" title="循环压缩"></a>循环压缩</h4><p>这一部分包含了MD5算法进行加密的主要操作，主要流程是以512位的分组为单位，每一分组经过4轮循环，每轮循环16次迭代，输出128位的结果，存放在缓冲区中，作为下一轮循环缓冲区的输入。</p>
+<p>4轮循环的逻辑如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208110604.png" alt=""></p>
+<p>从缓冲区输入128位，从消息分组输入512位，输出结果128位，要注意结果是由循环的结果加上缓冲区的值得到的(加法为模2<sup>32</sup>加法)。</p>
+<p>每轮循环中迭代的逻辑如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208111339.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208111450.png" alt=""></p>
+<p>其中：</p>
+<ul>
+<li>a，b，c，d是缓冲区的当前值</li>
+<li>g是4个轮函数之一，输入输出都是<code>bit32</code>，进行不同的逻辑运算</li>
+<li><code>&lt;&lt;&lt;s</code>是指把<code>bit32</code>循环左移<code>s</code>位，<code>s</code>可查表得到</li>
+<li><code>X[k]</code>是当前处理消息分组的第<code>k</code>个<code>bit32</code>，在每一轮循环中都由不同的公式计算出来</li>
+<li><code>T[i]</code>通过查表得到，32bit字</li>
+<li>所有的加法都是模2<sup>32</sup>加法</li>
+</ul>
+<p>需要注意，在迭代过程中缓冲区的值会发生变化，因此要提前存储下循环开始时缓冲区的值，用于之后与循环结果相加。</p>
+<p>4个轮函数逻辑如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/chenf99/PicGo/master/img/20181208112048.png" alt=""></p>
+<p>每轮循环中<code>X[k]</code>所取的<code>k</code>的计算方法为：</p>
+<p>取<code>j</code>为当前迭代轮次</p>
+<ol>
+<li>第一轮循环：<code>k = j</code></li>
+<li>第二轮循环：<code>k = (1 + 5 * j) % 16</code></li>
+<li>第三轮循环：<code>k = (5 + 3 * j) % 16</code></li>
+<li>第四轮循环：<code>k = (7 * j) % 16</code></li>
+</ol>
 <h4 id="得出结果"><a href="#得出结果" class="headerlink" title="得出结果"></a>得出结果</h4><p>经过前面的操作，我们已经得到了4个<code>bit32</code>的结果，但最直白的输出最好是字符串，许多在线工具也是把计算结果转成了32位长度的16进制字符串，便于使用。</p>
 <p>要得到16进制字符串类型的结果，首先需要把这4个<code>bit32</code>转成16个<code>byte</code>，再把每一个<code>byte</code>用两位16进制字符来表示。</p>
 <p>把<code>bit32</code>转成<code>byte</code>的过程又一次需要用到小端存储模式：</p>
@@ -692,7 +722,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计29.9k字</span>
+  <span class="post-count">本站共计30.3k字</span>
 </div>
         
 
