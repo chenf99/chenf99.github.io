@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="系统分析与设计," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="用例建模 - 绘制用例图1.简答题1.用例的概念用例（use case），或译使用案例、用况，是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。每个用例提供了一个或多个场景，该场景说明了系统是如何和最终用户或其它系统互动，也就是谁可以用系统做什么，从而获得一个明确的业务目标。编写用例时要避免使用技术术语，而应该用最终用户或者领域专家的语言。用例一般是由软">
+<meta name="keywords" content="系统分析与设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统分析与设计作业4">
+<meta property="og:url" content="http://yoursite.com/2019/05/13/系统分析与设计作业4/index.html">
+<meta property="og:site_name" content="chenf99 blog">
+<meta property="og:description" content="用例建模 - 绘制用例图1.简答题1.用例的概念用例（use case），或译使用案例、用况，是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。每个用例提供了一个或多个场景，该场景说明了系统是如何和最终用户或其它系统互动，也就是谁可以用系统做什么，从而获得一个明确的业务目标。编写用例时要避免使用技术术语，而应该用最终用户或者领域专家的语言。用例一般是由软">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190511000829.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235102.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235146.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235212.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235127.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235201.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190515193016.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190517000823.png">
+<meta property="og:updated_time" content="2019-05-17T05:04:07.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统分析与设计作业4">
+<meta name="twitter:description" content="用例建模 - 绘制用例图1.简答题1.用例的概念用例（use case），或译使用案例、用况，是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。每个用例提供了一个或多个场景，该场景说明了系统是如何和最终用户或其它系统互动，也就是谁可以用系统做什么，从而获得一个明确的业务目标。编写用例时要避免使用技术术语，而应该用最终用户或者领域专家的语言。用例一般是由软">
+<meta name="twitter:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190511000829.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":3},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/13/系统分析与设计作业4/"/>
+
+
+
+
+
+  <title>系统分析与设计作业4 | chenf99 blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/chenf99" class="github-corner" aria-label="View source on Github">
+	<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+	<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,
+		78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" 
+		fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,
+	98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,
+	40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,
+	73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,
+	102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,
+	124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+	</path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenf99 blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/系统分析与设计作业4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chenf99">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenf99 blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统分析与设计作业4</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T19:33:13+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-17T13:04:07+08:00">
+                2019-05-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统分析与设计/" itemprop="url" rel="index">
+                    <span itemprop="name">系统分析与设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/13/系统分析与设计作业4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/13/系统分析与设计作业4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k 字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="用例建模-绘制用例图"><a href="#用例建模-绘制用例图" class="headerlink" title="用例建模 - 绘制用例图"></a>用例建模 - 绘制用例图</h1><h2 id="1-简答题"><a href="#1-简答题" class="headerlink" title="1.简答题"></a>1.简答题</h2><h4 id="1-用例的概念"><a href="#1-用例的概念" class="headerlink" title="1.用例的概念"></a>1.用例的概念</h4><p>用例（use case），或译使用案例、用况，是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。每个用例提供了一个或多个场景，该场景说明了系统是如何和最终用户或其它系统互动，也就是谁可以用系统做什么，从而获得一个明确的业务目标。编写用例时要避免使用技术术语，而应该用最终用户或者领域专家的语言。用例一般是由软件开发者和最终用户共同创作的。</p>
+<a id="more"></a>
+<h4 id="2-用例和场景的关系？什么是主场景或-happy-path？"><a href="#2-用例和场景的关系？什么是主场景或-happy-path？" class="headerlink" title="2.用例和场景的关系？什么是主场景或 happy path？"></a>2.用例和场景的关系？什么是主场景或 happy path？</h4><p>场景是actors和系统之间一系列特定的actions和会话，又被称为用例实例（use case instance）。一个用例代表了一些场景的集合。</p>
+<p>主场景对应主要的系统会话（交互），一般是“成功的”场景，是最常用、直接地实现用户目标的场景。</p>
+<p>happy path是一个默认场景，没有异常或错误条件。比如验证信用卡号的happy path是，验证规则中没有一条会引发错误，从而使执行成功地持续到最后。</p>
+<h4 id="3-用例有哪些形式？"><a href="#3-用例有哪些形式？" class="headerlink" title="3.用例有哪些形式？"></a>3.用例有哪些形式？</h4><ol>
+<li><p>Brief</p>
+<p>简短的一段总结，通常是针对主要的成功场景。是为了在早期的需求分析过程中，快速了解主题和范围，可能只需要几分钟就可以创建。</p>
+</li>
+<li><p>Causal</p>
+<p>非正式的段落格式。涵盖多种场景的多个段落。</p>
+</li>
+<li><p>Fully</p>
+<p>所有的步骤和变化都写得很详细，并且有补充部分，如前置条件和成功保证。在以简短的格式识别和编写了许多用例之后，在第一个需求研讨会期间有少量的具有结构重要性和高价值的用例被详细地编写。</p>
+</li>
+</ol>
+<h4 id="4-对于复杂业务，为什么编制完整用例非常难？"><a href="#4-对于复杂业务，为什么编制完整用例非常难？" class="headerlink" title="4.对于复杂业务，为什么编制完整用例非常难？"></a>4.对于复杂业务，为什么编制完整用例非常难？</h4><p>因为复杂业务所涉及的场景非常多，较为复杂，场景之间的关联使得用例设计变得十分困难。要编写完整用例，需要非常熟悉这些场景，还需要建模知识，注意与用户交互的各种细节，并且还要应对实际中需求发生变化的情况，所以非常难。</p>
+<h4 id="5-什么是用例图？"><a href="#5-什么是用例图？" class="headerlink" title="5.什么是用例图？"></a>5.什么是用例图？</h4><p>用例图是指由参与者（Actor）、用例（Use Case），边界以及它们之间的关系构成的用于描述系统功能的视图。用例图（User Case）是外部用户（被称为参与者）所能观察到的系统功能的模型图。用例图是系统的蓝图。用例图呈现了一些参与者，一些用例，以及它们之间的关系，主要用于对系统、子系统或类的功能行为进行建模。</p>
+<h4 id="6-用例图的基本符号与元素？"><a href="#6-用例图的基本符号与元素？" class="headerlink" title="6.用例图的基本符号与元素？"></a>6.用例图的基本符号与元素？</h4><ul>
+<li><p>参与者（Actor）：表示的是一个系统用户，也就是与应用程序进行交互的用户、组织或者外部系统。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190511000829.png" alt=""></p>
+</li>
+<li><p>用例（Use Case）：表示的是对系统提供的功能、服务的一种描述。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235102.png" alt=""></p>
+</li>
+<li><p>用例之间的关系：</p>
+<p><strong>包含(Include)：</strong>表示用例可以简单地包含其他用例所具有的行为，并把它所包含的用例行为作为自身行为的一部分。在UML中常用带箭头的虚线表示，箭头指向被包含的用例。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235146.png" alt=""></p>
+<p><strong>泛化(Generalization)</strong>：泛化指的是一个父用例可以被特化形成多个子用例，而父用例和子用例之间的关系就是泛化关系。在UML中用空心三角箭头的实线表示，箭头指向父用例。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235212.png" alt=""></p>
+<p><strong>关联(Association)：</strong>表示的是参与者与用例之间的关系。在UML中常用一条直线，或者是一条带箭头的线条来表示，箭头指向信息接收方。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235127.png" alt=""></p>
+<p><strong>扩展/延伸(Extend)：</strong>表示在一定条件下，把新的行为加入到已有的用例中，获得的新用例叫做扩展用例，原有的用例叫做基础用例，相当于为基础用例提供一个附加功能。在UML中用带箭头的虚线表示，箭头指向基础用例。</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190514235201.png" alt=""></p>
+</li>
+</ul>
+<h4 id="7-用例图的画法与步骤"><a href="#7-用例图的画法与步骤" class="headerlink" title="7.用例图的画法与步骤"></a>7.用例图的画法与步骤</h4><ol>
+<li>确定研讨的系统<ul>
+<li>使用用例图 System框 表示一个待研究的系统</li>
+<li>正确命名系统或子系统</li>
+</ul>
+</li>
+<li>识别 Actors<ul>
+<li>识别使用系统的主要参与者（primary actors）/角色(roles)<ul>
+<li>使用用例图 actor符号 表示，通常放在系统的左边</li>
+<li>企业应用可以通过企业组织架构，业务角色与职责识别</li>
+<li>互联网应用则必须通过市场分析，确定受众范围</li>
+<li>千万不要用“用户”代表系统使用者，以避免过于通用导致缺乏用户体验。</li>
+</ul>
+</li>
+<li>识别系统依赖的外部系统<ul>
+<li>使用用例图 Neighboursystem框 表示用例依赖的外部系统、服务、设备，并使用构造型（Stereotype）识别</li>
+<li>要将一些专业功能赋予专业系统</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>识别用例（服务）<ul>
+<li>识别用户级别用例（user goal level）<ul>
+<li>以主要参与者目标驱动</li>
+<li>收集主要参与者的业务事件</li>
+<li>必须满足以下准则<ul>
+<li>boss test</li>
+<li>EBP test</li>
+<li>Size Test</li>
+</ul>
+</li>
+<li>manage 用例。特指管理一些事物的 CRUD 操作，例如管理文件、管理用户等</li>
+</ul>
+</li>
+<li>识别子功能级别的用例（sub function level）<ul>
+<li>子用例特征<ul>
+<li>业务复用。</li>
+<li>复杂业务分解。</li>
+<li>强调技术或业务创新。</li>
+</ul>
+</li>
+<li>正确使用用例与子用例之间的关系<ul>
+<li>&lt;<include>&gt; 表示子用例是父用例的一部分，通常强调离开这个特性，父用例无法达成目标或失去意义！</include></li>
+<li>&lt;<extend>&gt; 表示子用例是父用例的可选场景或技术特征。</extend></li>
+<li>&lt;<include>&gt; <strong>箭头指向子用例</strong>；&lt;<extend>&gt; <strong>箭头指向父用例</strong>。箭头表示的依赖关系！</extend></include></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>建立 Actor 和 Use Cases 之间的关联<ul>
+<li>请使用 <strong>无方向连线</strong>，表示两间之间是双向交互的协议</li>
+</ul>
+</li>
+</ol>
+<h4 id="8-用例图给利益相关人与开发者的价值有哪些？"><a href="#8-用例图给利益相关人与开发者的价值有哪些？" class="headerlink" title="8.用例图给利益相关人与开发者的价值有哪些？"></a>8.用例图给利益相关人与开发者的价值有哪些？</h4><ol>
+<li>对利益相关人：<ul>
+<li>可以直观看清系统的结果以及用户的功能体验，提供了系统使用和行为的摘要视图，保证系统能够按照用户的需求进行设计，并且便于与利益相关人进行沟通，及时对系统功能进一步完善。</li>
+<li>能够根据业务场景的复杂程度和形式化程序进行增减调节，能够相应利益相关人提出的需求。通过用例图进行系统功能的增减以及修改更加便利。</li>
+<li>使得系统能够注重其参与者的用户体验。</li>
+</ul>
+</li>
+<li>对开发者：<ul>
+<li>明确系统的业务范围、服务对象（角色）、外部系统与设备</li>
+<li>帮助识别技术风险，提前实施关键技术原型公关与学习</li>
+<li>易于评估项目工作量，合理规划迭代周期，规划人力需要</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-建模练习题（用例模型）"><a href="#2-建模练习题（用例模型）" class="headerlink" title="2.建模练习题（用例模型）"></a>2.建模练习题（用例模型）</h2><h4 id="2-1选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><a href="#2-1选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：" class="headerlink" title="2.1选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："></a>2.1选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</h4><ul>
+<li>请使用用户的视角，描述用户目标或系统提供的服务</li>
+<li>粒度达到子用例级别，并用 include 和 exclude 关联它们</li>
+<li>请用色彩标注出你认为创新（区别于竞争对手的）用例或子用例</li>
+<li>尽可能识别外部系统和服务</li>
+</ul>
+<p><strong>携程酒店</strong>：</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190515193016.png" alt=""></p>
+<p><strong>猫眼电影：</strong></p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190517000823.png" alt=""></p>
+<h4 id="2-2回答下列问题："><a href="#2-2回答下列问题：" class="headerlink" title="2.2回答下列问题："></a>2.2回答下列问题：</h4><ol>
+<li><p>为什么相似系统的用例图是相似的？</p>
+<p>因为相似系统面向的Actor是相似的，从Actor视角定义的用例也是相似的，连同用例之间的关系都是相似的。这本质是因为相似系统的功能需求是相似的。</p>
+</li>
+<li><p>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</p>
+<p>不同时代用户的需求不同，Asg_RH用例图主要满足的是用户基本需求，如今的产品则综合考虑了更多功能，更加人性化。不同地区的旅馆在服务、价格、交通方面都会有较大的差别，可以在用例图中突出这些方面的重要性。</p>
+</li>
+<li><p>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</p>
+<p>使用不同的颜色来标记创新思路可以快速定位其在用例图中的位置，利用创新思路在用例图中的位置可以看出它在系统中的作用。如果把用例图看成一棵树，则位于越靠近根的创新思路作用越大。</p>
+</li>
+<li><p>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</p>
+<p>选择携程订酒店的用例图。</p>
+<p>|  ID  |       Name       | Imp  | Est  | How to demo                                                  |<br>| – | ————– | – | – | ———————————————————– |<br>|  1   |    find hotel    |  10  |  5   | 根据酒店名、地点查找酒店，输入目的地、日期等相关信息后获取匹配的酒店列表 |<br>|  2   | make reservation |  10  |  5   | 选择酒店、房间并确认                                         |<br>|  3   |      login       |  6   |  2   | 建立用户账户信息数据库，与第三方软件绑定实现多种方式登陆     |<br>|      |  manage basket   |  7   |  3   | 用户查看订单，并可以进行修改                                 |<br>|  5   |       pay        |  8   |  3   | 在完成登陆后可以支付订单费用，需要用到不同支付方式的api      |</p>
+</li>
+<li><p>根据任务4，参考 <a href="https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html" target="_blank" rel="noopener">使用用例点估算软件成本</a>，给出项目用例点的估算</p>
+<p>根据用户点方法，对用例分配权重的标准是：</p>
+<ul>
+<li>简单用例：1 到 3 个事务，权重=5</li>
+<li>一般用例：4 到 7 个事务，权重=10</li>
+<li>复杂用例：多于 7 个事务，权重=15</li>
+</ul>
+<p>|       用例       | 业务 | 计算 | 原因 | UC比重 |<br>| ————– | – | – | – | —- |<br>|    find hotel    |  3   |  3   |      |  简单  |<br>| make reservation |  4   |  4   |      |  一般  |<br>|      login       |  2   |  1   |      |  简单  |<br>|  manage basket   |  4   |  3   |      |  一般  |<br>|       pay        |  3   |  1   |      |  简单  |</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/系统分析与设计/" rel="tag"> <i class="fa fa-tag"></i> 系统分析与设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/14/系统分析与设计作业3/" rel="next" title="系统分析与设计作业3">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计作业3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.jpg"
+                alt="Chenf99" />
+            
+              <p class="site-author-name" itemprop="name">Chenf99</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用例建模-绘制用例图"><span class="nav-number">1.</span> <span class="nav-text">用例建模 - 绘制用例图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简答题"><span class="nav-number">1.1.</span> <span class="nav-text">1.简答题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-用例的概念"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.用例的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-用例和场景的关系？什么是主场景或-happy-path？"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2.用例和场景的关系？什么是主场景或 happy path？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-用例有哪些形式？"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3.用例有哪些形式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-对于复杂业务，为什么编制完整用例非常难？"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4.对于复杂业务，为什么编制完整用例非常难？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-什么是用例图？"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5.什么是用例图？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-用例图的基本符号与元素？"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">6.用例图的基本符号与元素？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-用例图的画法与步骤"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">7.用例图的画法与步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-用例图给利益相关人与开发者的价值有哪些？"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">8.用例图给利益相关人与开发者的价值有哪些？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-建模练习题（用例模型）"><span class="nav-number">1.2.</span> <span class="nav-text">2.建模练习题（用例模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">2.1选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如订旅馆（携程、去哪儿等）、订电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2回答下列问题："><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2.2回答下列问题：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenf99</span>
+	
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+  总访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv">
+  总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本站共计61.4k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '系统分析与设计作业4', 
+            owner: 'chenf99',
+            repo: 'chenf99.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '09982819c2adc829ebb344300dbe898ee05e5e05',
+            
+                client_id: '66096c0f502912f41ec7'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 代码块复制功能 -->
+<!--
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+-->
+
