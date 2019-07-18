@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717155229.png">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717162312.png">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717172248.png">
-<meta property="og:updated_time" content="2019-07-18T06:42:16.948Z">
+<meta property="og:updated_time" content="2019-07-18T08:41:12.051Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network">
 <meta name="twitter:description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T14:42:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T16:41:12+08:00">
                 2019-07-18
               </time>
             
@@ -381,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k 字
+                  2.1k 字
                 </span>
               
 
@@ -421,14 +421,15 @@
 <p>图中的<script type="math/tex">k * k, N​</script>表示卷积核大小为$k * k​$，输出channel为$N​$</p>
 <h3 id="RSAR"><a href="#RSAR" class="headerlink" title="RSAR"></a>RSAR</h3><p>RSAR模块用于提高密度图的质量，它通过一个空间转换机制来定位图像中的注意区域，然后利用残差学习来对密度图进行优化。最终在经过$n​$次RASR模块的迭代后可以得到一个能够准确估计人群数量的高质量密度图。由此可知RSAR包含两个模块：</p>
 <ol>
-<li>用于定位注意区域的Spatial Transformer Network</li>
-<li>用于优化密度图的Local Refinement Network</li>
+<li>定位注意区域，核心是LSTM和Spatial transformer Network  </li>
+<li>优化密度图，核心是Local Refinement Network</li>
 </ol>
 <p>定义RSAR模块的第$i$次迭代的输入为$M_{i-1 }$。</p>
 <h4 id="Attentional-Region-Localization"><a href="#Attentional-Region-Localization" class="headerlink" title="Attentional Region Localization"></a>Attentional Region Localization</h4><p>首先把$M_{i-1}$通过全连接层编码为512维的特征，用作LSTM的输入：</p>
 <script type="math/tex; mode=display">c_i, h_i = LSTM(c_{i-1}, h_{i-1}, FC(M_{i-1}))</script><p>$c_i$和$h_i$分别代表LSTM的memory cell和hidden state，$h_i$会被通过用全连接层来计算得到变换矩阵$T_i$的参数，根据变换矩阵$T_i$就可以从完整密度图$M_{i-1}$中提取出区域密度图$r_i$：</p>
 <script type="math/tex; mode=display">r_i = ST(M_{i-1}, T_i)</script><p>变换矩阵$T_i​$允许对输入密度图进行平移、旋转、缩放操作：</p>
-<script type="math/tex; mode=display">T_i = \begin{bmatrix} \theta^i_{11} & \theta^i_{12} & \theta^i_{13} \\ \theta^i_{21} & \theta^i_{22} & \theta^i_{23}\end{bmatrix}</script><p>由于训练过程中变换矩阵$T_i​$的存在，训练好的网络能够处理人群规模和旋转角度变化的问题。作者也对变换矩阵所允许的操作进行了简化测试，发现在允许平移、旋转和缩放操作时训练出的网络具有最好的效果。</p>
+<script type="math/tex; mode=display">T_i = \begin{bmatrix} \theta^i_{11} & \theta^i_{12} & \theta^i_{13} \\ \theta^i_{21} & \theta^i_{22} & \theta^i_{23}\end{bmatrix}</script><p>$ST$代表<a href="https://arxiv.org/abs/1506.02025" target="_blank" rel="noopener">Spatial transformer Network</a>，能够对feature map进行空间变换，输出一张新的图像，$ST$的空间不变性保证了在对图像进行平移、旋转、缩放等操作后模型仍能正确识别这张图片。$ST$是一个独立的模块，可以在CNN的任何地方插入。</p>
+<p>由于训练过程中变换矩阵$T_i​$的存在，训练好的网络能够处理人群规模和旋转角度变化的问题。作者也对变换矩阵所允许的操作进行了简化测试，发现在允许平移、旋转和缩放操作时训练出的网络具有最好的效果。</p>
 <p>通过双线性插值法可以把区域密度图$r_i$ resize成给定的大小$w * h$</p>
 <h4 id="Region-Density-Map-Refinement"><a href="#Region-Density-Map-Refinement" class="headerlink" title="Region Density Map Refinement"></a>Region Density Map Refinement</h4><p>已有的工作证明了对全局上下文信息建模在人群计数任务中的重要性，因此作者在这个模块中也考虑了这一点。</p>
 <p>首先把全局特征$g$用两个堆叠的全连接层进行编码，输出512维的向量，然后把输出reshape成$w*h$的tensor可以得到global context map $c_g$，得到了$r_i$和$c_g$后就可以用LRN模块来进行密度图的优化。</p>
@@ -437,16 +438,16 @@
 <p>LRN（Local Refinement Network）模块把拼接之后的$r_i​$和$c_g​$作为输入，输出这块区域的残差图。最后通过把$M_{i-1}​$和inverse之后的残差图相加就可以得到优化过后的密度图$M_i​$：</p>
 <script type="math/tex; mode=display">M_i = M_{i-1} + IST(LRN(r_i, c_g), T^{-1}_i),</script><script type="math/tex; mode=display">T^{-1}_i = r * \begin{bmatrix} \theta^i_{22} & -\theta^i_{12} & \theta^i_{12}\theta^i_{23}  -\theta^i_{13}\theta^i_{22} \\ -\theta^i_{21} & \theta^i_{11} & \theta^i_{13}\theta^i_{21}  -\theta^i_{11}\theta^i_{23}\end{bmatrix},</script><script type="math/tex; mode=display">r = \frac{1}{\theta^i_{11}\theta^i_{22}  -\theta^i_{12}\theta^i_{21}}​</script><p>IST（inverse spatial transformer）能够根据$T^{-1}_i​$来把残差图转换回注意区域，$T^{-1}_i​$是变换矩阵$T_i​$的逆</p>
 <h3 id="Optimization-amp-Evaluation"><a href="#Optimization-amp-Evaluation" class="headerlink" title="Optimization &amp; Evaluation"></a>Optimization &amp; Evaluation</h3><p>对于图片的预处理视不同的数据集而定，但都需要把所有图片处理成统一的大小。</p>
-<p> 图片$I_i$的ground truth的密度图$D_i$的生成参考了<a href="http://papers.nips.cc/paper/4043-learning-to-count-objects-in-images.pdf" target="_blank" rel="noopener">Learning to count objects in images </a>这篇论文，据作者所说有很好的效果，后续可以进一步研究。</p>
-<p>在训练过程中损失函数定义如下:</p>
-<script type="math/tex; mode=display">Loss = \sum^N_{i=1}\|M^0_i - D_i\|^2 + \sum^N_{i=1}\|M^n_i - D_i\|^2​</script><p>CNN的filter和全连接层的参数通过deviation为0.01的截断正态分布来初始化；初始学习率为$10^{-4}$，并且每1000轮迭代乘以0.98，用以实现学习率衰减；batch size设置为1；使用Adam优化器；RSAR优化迭代次数为30。</p>
+<p> 图片$I_i$的ground truth的密度图$D_i$的生成参考了<a href="http://papers.nips.cc/paper/4043-learning-to-count-objects-in-images.pdf" target="_blank" rel="noopener">Learning to count objects in images </a>这篇论文，按照数据集给定的人头标注的点把图片转换成密度图。要从密度图计算出人数则是对所有标注出的点在密度图上求和得到：</p>
+<script type="math/tex; mode=display">\sum_{p\in I_i} D_i(p)</script><p>在训练过程中损失函数定义如下:</p>
+<script type="math/tex; mode=display">Loss = \sum^N_{i=1}\|M^0_i - D_i\|^2 + \sum^N_{i=1}\|M^n_i - D_i\|^2​</script><p>CNN的filter和全连接层的参数通过deviation为0.01的截断正态分布来初始化；初始学习率为$10^{-4}​$，并且每1000轮迭代乘以0.98，用以实现学习率衰减；batch size设置为1；使用Adam优化器；RSAR优化迭代次数为30。</p>
 <p>模型的评估方式有两种，平均绝对误差（MAE）和均方误差（MSE）：</p>
-<script type="math/tex; mode=display">MAE = \frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|, MSE = \sqrt{\frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|^2}​</script><p>$N$是测试图片总数，$p_i$和$\hat{p_i}$分别是第$i$个图片的ground truth和估计值。</p>
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>作者在<strong>ShanghaiTech</strong>、<strong>UCF CC 50</strong>、<strong>MALL</strong> 、<strong>WorldExpo’10</strong>这4个数据集上都进行了实验，并与已有最佳方法进行了比较，本文这种方法都取得了最优的结果。</p>
+<script type="math/tex; mode=display">MAE = \frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|, MSE = \sqrt{\frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|^2}​</script><p>$N$是测试图片总数，$p_i$和$\hat{p_i}$分别是第$i$个图片的ground truth count和估计值。</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>作者在<strong>ShanghaiTech</strong>、<strong>UCF CC 50</strong>、<strong>MALL</strong> 、<strong>WorldExpo’10</strong>这4个数据集上都进行了实验（这4个数据集均给出了人头标注的点的坐标），并与已有最佳方法进行了比较，本文这种方法都取得了最优的结果。</p>
 <p>下面这张图以可视化的形式展现了模型的效果：</p>
 <p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717172248.png" alt></p>
 <p>用初始的密度图$M_0 $估计出的人群数量误差很大，而在经过了迭代优化之后的密度图就可以用来准确地估计人群数量了。</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>人群计数是计算机视觉中比较重要的一个问题，具有很高的应用价值。本文提出的Deep Recurrent Spatial-Aware Network利用注意力机制和残差学习对人群密度图的局部区域不断进行迭代优化，最终得到可用于准确人群计数的高质量密度图。我认为本文最大的创新点在于：</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>人群计数是计算机视觉中比较重要的一个问题，具有很高的应用价值。本文提出的Deep Recurrent Spatial-Aware Network利用空间变换机制和残差学习对人群密度图的局部区域不断进行迭代优化，最终得到可用于准确人群计数的高质量密度图。我认为本文最大的创新点在于：</p>
 <ol>
 <li>根据LSTM学习长期依赖信息的特点，用LSTM来捕捉密度图的历史信息和行为转换</li>
 <li>引入了变换矩阵$T_i​$，从而使得训练好的模型能够很好地处理人群规模和旋转角度变化的问题</li>
@@ -678,7 +679,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计64.1k字</span>
+  <span class="post-count">本站共计64.3k字</span>
 </div>
         
 
