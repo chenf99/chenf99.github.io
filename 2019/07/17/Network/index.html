@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="系统分析与设计," />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="软件的本质与软件工程科学1.简答题 软件工程的定义： 软件工程是应用系统的、规范的、量化的方法来开发、操作和维护软件，是将工程应用到软件开发的系统方法。">
-<meta name="keywords" content="系统分析与设计">
+<meta name="description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统分析与设计作业1">
-<meta property="og:url" content="http://yoursite.com/2019/03/10/SSOD-作业1/index.html">
+<meta property="og:title" content="论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/Network/index.html">
 <meta property="og:site_name" content="chenf99 blog">
-<meta property="og:description" content="软件的本质与软件工程科学1.简答题 软件工程的定义： 软件工程是应用系统的、规范的、量化的方法来开发、操作和维护软件，是将工程应用到软件开发的系统方法。">
+<meta property="og:description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T08:24:31.857Z">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717165326.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717155229.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717162312.png">
+<meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717172248.png">
+<meta property="og:updated_time" content="2019-07-18T06:23:49.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统分析与设计作业1">
-<meta name="twitter:description" content="软件的本质与软件工程科学1.简答题 软件工程的定义： 软件工程是应用系统的、规范的、量化的方法来开发、操作和维护软件，是将工程应用到软件开发的系统方法。">
+<meta name="twitter:title" content="论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network">
+<meta name="twitter:description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
+<meta name="twitter:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717165326.png">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/10/SSOD-作业1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/17/Network/">
 
 
 
 
 
-  <title>系统分析与设计作业1 | chenf99 blog</title>
+  <title>论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network | chenf99 blog</title>
   
 
 
@@ -155,11 +159,10 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/chenf99" class="github-corner" aria-label="View source on Github">
-	<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+	<svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
 	<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,
-		78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" 
-		fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+		78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
 	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,
 	98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,
 	40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,
@@ -174,7 +177,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">chenf99 blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -204,7 +207,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -214,7 +217,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -224,7 +227,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -237,7 +240,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -258,9 +261,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -297,11 +298,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/SSOD-作业1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/Network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chenf99">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/blog-logo.jpg">
     </span>
 
@@ -314,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统分析与设计作业1</h1>
+          <h1 class="post-title" itemprop="name headline">论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network</h1>
         
 
         <div class="post-meta">
@@ -326,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T14:22:41+08:00">
-                2019-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T14:59:06+08:00">
+                2019-07-17
               </time>
             
 
@@ -342,34 +343,12 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T16:24:31+08:00">
-                2019-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T14:23:49+08:00">
+                2019-07-18
               </time>
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/系统分析与设计/" itemprop="url" rel="index">
-                    <span itemprop="name">系统分析与设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -379,8 +358,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/10/SSOD-作业1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/10/SSOD-作业1/" itemprop="commentsCount"></span>
+                <a href="/2019/07/17/Network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/17/Network/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -402,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k 字
+                  1.9k 字
                 </span>
               
 
@@ -427,105 +406,53 @@
       
 
       
-        <h3 id="软件的本质与软件工程科学"><a href="#软件的本质与软件工程科学" class="headerlink" title="软件的本质与软件工程科学"></a>软件的本质与软件工程科学</h3><h4 id="1-简答题"><a href="#1-简答题" class="headerlink" title="1.简答题"></a>1.简答题</h4><ol>
-<li><p>软件工程的定义：</p>
-<p>软件工程是应用系统的、规范的、量化的方法来开发、操作和维护软件，是将工程应用到软件开发的系统方法。</p>
+        <p>本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文<a href="https://arxiv.org/abs/1807.00601" target="_blank" rel="noopener">Crowd Counting using Deep Recurrent Spatial-Aware Network</a>，本文记录了我对这篇论文的一些解读</p>
+<h2 id="Highlight"><a href="#Highlight" class="headerlink" title="Highlight"></a>Highlight</h2><p>人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 <strong>Deep Recurrent Spatial-Aware Network</strong>通过使用可学习的空间变化模块结合区域优化过程，首次解决了旋转角度变化的问题，并取得了很好的效果。相比于已有的最优方法，本文提出的方法在WorldExpo’10和UCF CC 50数据集上的效果都取得了很大的进步。</p>
 <a id="more"></a>
-</li>
-<li><p>解释导致software crisis本质原因、表现，述说客服软件危机的方法：</p>
-<p><strong>本质原因</strong>：计算机能力的快速增长以及无法解决的问题的复杂性，由于软件复杂性的增加，很多已有方法不足以解决的软件问题逐渐增加。</p>
-<p>计算能力的提高超过了程序员有效利用这些计算能力的能力</p>
-<p><strong>表现</strong>：</p>
-<ul>
-<li>项目运行超预算</li>
-<li>项目运行超时</li>
-<li>软件效率低下</li>
-<li>软件低质量</li>
-<li>软件经常无法满足需求</li>
-<li>项目无法管理、代码难以维护</li>
-<li>软件从未交付过</li>
-</ul>
-<p><strong>解决方法</strong>：</p>
-<p>使用系统化、与时俱进的软件工程方法，如过程式编程、面向对象编程方法。</p>
-</li>
-<li><p>软件生命周期：</p>
-<p>在时间维度对软件项目任务进行划分，又称为软件开发过程，即为了提高设计、产品管理、项目管理而把软件开发工作分成不同的阶段。常见的有瀑布模型、螺旋模型、敏捷的模型等。</p>
-</li>
-<li><p>SWEBoK的15个知识域：</p>
-<p><strong>描述软件工程实践的11个知识域</strong>：</p>
-</li>
+<h2 id="Problem-amp-Challenge"><a href="#Problem-amp-Challenge" class="headerlink" title="Problem &amp; Challenge"></a>Problem &amp; Challenge</h2><p>人群计数即估计拥挤场景中的总人数，这在实际生活中十分重要。比如在一些大型活动中，如果能够准确估计出当前场景中的人群密度，就可以安排相应级别的安保措施，从而避免发生踩踏事故。</p>
+<p>由于光照和摄像机视角的变化，要准确估计同一个场景的不同图片中的人群密度绝非易事，已有的方法仅处理了人群规模的变化而没有解决摄影角度变化的问题。而且这些方法大多使用了预先设计好的固定网络结构，这使得它们仅能处理有限的规模变化。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>本文提出了一种新型网络<strong>Deep Recurrent Spatial-Aware Network</strong>来完成人群计数的任务，第一次解决了旋转角度变化的问题。</p>
+<p>模型整体网络结构如图所示：</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717165326.png" alt></p>
+<p>网络总共包含两个模块：Global Feature Embedding（GFE）和Recurrent Spatial-Aware Refinement(RSAR)。</p>
+<h3 id="GFE"><a href="#GFE" class="headerlink" title="GFE"></a>GFE</h3><p>GFE（Global Feature Embedding）模块对输入的图像进行特征提取，得到的feature map通过$1*1$的卷积运算得到初始的人群密度图$M_0$。</p>
+<script type="math/tex; mode=display">g = GFE(I), M_0 = Conv(g)​</script><p>GFE模块网络结构如图所示，包含3列CNN，每一列都有7个不同kernel size、channels的卷积层，并且有3个max-pooling池化层，最终把3列CNN的输出拼接得到全局特征$g$</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717155229.png" alt></p>
+<p>图中的<script type="math/tex">k * k, N​</script>表示卷积核大小为$k * k​$，输出channel为$N​$</p>
+<h3 id="RSAR"><a href="#RSAR" class="headerlink" title="RSAR"></a>RSAR</h3><p>RSAR模块用于提高密度图的质量，它通过一个空间转换机制来定位图像中的注意区域，然后利用残差学习来对密度图进行优化。最终在经过$n​$次RASR模块的迭代后可以得到一个能够准确估计人群数量的高质量密度图。由此可知RSAR包含两个模块：</p>
+<ol>
+<li>用于定位注意区域的Spatial Transformer Network</li>
+<li>用于优化密度图的Local Refinement Network</li>
 </ol>
-<ul>
-<li><p>软件需求：</p>
-<p>关于软件需求的启发、协商、分析、规范和验证。表达了用于解决实际问题的软件产品的需要和约束。</p>
-</li>
-<li><p>软件设计：</p>
-<p>定义系统或组件的结构、组成部分、接口和其他特点的过程以及这个过程的结果。软件设计过程是一个软件工程生命周期活动，它分析软件需求来产生对软件内部结构的描述，它的表现会作为它的构建的基础。</p>
-</li>
-<li><p>软件构建：</p>
-<p>通过详细的设计、编码、单元测试、继承测试、调试和验证的组合来详细地创建工作软件。这个知识域涉及软件构建基础、软件管理基础、构建技术、实际考虑以及软件构建工具。</p>
-</li>
-<li><p>软件测试：</p>
-<p>评估和通过识别缺陷来提升软件质量的活动。这个知识域包含软件测试基础、测试技术、人机交互接口测试和评估、测试相关的措施以及实际考虑。</p>
-</li>
-<li><p>软件维护：</p>
-<p>包含增强已有的能力，调整软件来在新的和修改过的操作环境中运行以及纠正缺陷。这个知识域包含软件维护的基础、软件维护的关键问题、维护过程、软件维护的技术、灾难恢复技术和软件维护工具。</p>
-</li>
-<li><p>软件配置管理：</p>
-<p>系统的配置是硬件、固件、软件的功能和物理特性的组合。软件配置管理是为了系统地控制配置的变化，在不同时间点识别系统配置的规程，也是在整个软件生命周期中维护配置的完整性和可追溯性的规程。</p>
-</li>
-<li><p>软件工程管理：</p>
-<p>包含计划、协调、测量、报告和控制项目或程序，以确保软件的开发和维护是系统的、规范的和量化的</p>
-</li>
-<li><p>软件工程进程：</p>
-<p>涉及软件生命周期过程的定义、实现、评估、测量、管理和改进。</p>
-</li>
-<li><p>软件工程模型和方法：</p>
-<p>涉及包含多个生命周期阶段的方法，特定生命周期阶段的方法由其他知识域涵盖。</p>
-</li>
-<li><p>软件质量：</p>
-<p>普遍存在的的软件生命周期问题。</p>
-</li>
-<li><p>软件工程专业实践：</p>
-<p>软件工程师必须拥有知识、技能和态度来以专业、负责和道德的方式来实践软件工程。</p>
-<p><strong>描述软件工程教育需求的4个知识域</strong>：</p>
-</li>
-<li><p>软件工程经济学：</p>
-<p>涉及在业务环境中做出决策，以使技术决策与组织的业务目标保持一致。</p>
-</li>
-<li><p>计算基础：</p>
-<p>涵盖为软件工程实践提供必要的计算背景的基本主题。</p>
-</li>
-<li><p>数学基础：</p>
-<p>涵盖为软件工程实践提供必要的数学背景的基本主题。</p>
-</li>
-<li><p>工程基础：</p>
-<p>涵盖为软件工程实践提供必要的工程背景的基本主题。</p>
-</li>
-</ul>
-<ol start="5">
-<li><p>简单解释CMMI的五个级别</p>
-<p>Level 1-Initial(初始级)：</p>
-<p>​    软件过程是无序的，有时甚至是混乱的，对过程几乎没有定义，成功取决于个人努力，管理是反应式的    </p>
-<p>Level 2-Managed(可管理级)：</p>
-<p>​    建立了基本的项目管理过程来跟踪费用、进度和功能特性。制定了必要的过程纪律，能重复早先类似应用项目取得的成功经验。    </p>
-<p>Level 3-Defined(已定义级)：</p>
-<p>​    已将软件管理和工程两方面的过程文档化、标准化，并综合成该组织的标准软件过程。所有项目均使用经批准、剪裁的标准软件过程来开发和维护软件，软件产品的生产在整个软件过程是可见的。    </p>
-<p>Level 4-Quantitatively Managed(量化管理级)：</p>
-<p>​    分析对软件过程和产品质量的详细度量数据，对软件过程和产品都有定量的理解与控制。管理有一个作出结论的客观依据，管理能够在定量的范围内预测性能。</p>
-<p>Level 5-Optimizing(优化级)：</p>
-<p>​    过程的量化反馈和先进的新思想、新技术促使过程持续不断改进。</p>
-</li>
-<li><p>用自己语言简述SWEBok或CMMI(约200字)</p>
-<p>CMMI即能力成熟度模型集成，是一个过程级别的改进模型，集成了各种现存实施的与将被发展出来的能力成熟度模型，本质是软件管理工程的一部分。</p>
-<p>改善软件生产过程是当前软件管理工程的核心问题，它关乎高效率、高质量和低成本地开发软件。CMMI目的旨在帮助企业管理和改进软件工程过程，增强开发和改进能力，开发出高质量的软件。它通过使用知识(能力)的不同，用不同的级别表示开发企业的成熟性，给出了企业能力评估的事实标准。</p>
-<p>CMMI的主要关注点在成本效益、明确重点、过程集中和灵活性四个方面。</p>
-</li>
+<p>定义RSAR模块的第$i$次迭代的输入为$M_{i-1 }$。</p>
+<h4 id="Attentional-Region-Localization"><a href="#Attentional-Region-Localization" class="headerlink" title="Attentional Region Localization"></a>Attentional Region Localization</h4><p>首先把$M_{i-1}$通过全连接层编码为512维的特征，用作LSTM的输入：</p>
+<script type="math/tex; mode=display">c_i, h_i = LSTM(c_{i-1}, h_{i-1}, FC(M_{i-1}))</script><p>$c_i$和$h_i$分别代表LSTM的memory cell和hidden state，$h_i$会被通过用全连接层来计算得到变换矩阵$T_i$的参数，根据变换矩阵$T_i$就可以从完整密度图$M_{i-1}$中提取出区域密度图$r_i$：</p>
+<script type="math/tex; mode=display">r_i = ST(M_{i-1}, T_i)</script><p>变换矩阵$T_i​$允许对输入密度图进行平移、旋转、缩放操作：</p>
+<script type="math/tex; mode=display">T_i = \begin{bmatrix} \theta^i_{11} & \theta^i_{12} & \theta^i_{13} \\ \theta^i_{21} & \theta^i_{22} & \theta^i_{23}\end{bmatrix}</script><p>由于训练过程中变换矩阵$T_i​$的存在，训练好的网络能够处理人群规模和旋转角度变化的问题。作者也对变换矩阵所允许的操作进行了简化测试，发现在允许平移、旋转和缩放操作时训练出的网络具有最好的效果。</p>
+<p>通过双线性插值法可以把区域密度图$r_i$ resize成给定的大小$w * h$</p>
+<h4 id="Region-Density-Map-Refinement"><a href="#Region-Density-Map-Refinement" class="headerlink" title="Region Density Map Refinement"></a>Region Density Map Refinement</h4><p>已有的工作证明了对全局上下文信息建模在人群计数任务中的重要性，因此作者在这个模块中也考虑了这一点。</p>
+<p>首先把全局特征$g$用两个堆叠的全连接层进行编码，输出512维的向量，然后把输出reshape成$w*h$的tensor可以得到global context map $c_g$，得到了$r_i$和$c_g$后就可以用LRN模块来进行密度图的优化。</p>
+<p>LRN模块网络结构跟GFE模块很相似：</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717162312.png" alt></p>
+<p>LRN（Local Refinement Network）模块把拼接之后的$r_i​$和$c_g​$作为输入，输出这块区域的残差图。最后通过把$M_{i-1}​$和inverse之后的残差图相加就可以得到优化过后的密度图$M_i​$：</p>
+<script type="math/tex; mode=display">M_i = M_{i-1} + IST(LRN(r_i, c_g), T^{-1}_i),</script><script type="math/tex; mode=display">T^{-1}_i = r * \begin{bmatrix} \theta^i_{22} & -\theta^i_{12} & \theta^i_{12}\theta^i_{23}  -\theta^i_{13}\theta^i_{22} \\ -\theta^i_{21} & \theta^i_{11} & \theta^i_{13}\theta^i_{21}  -\theta^i_{11}\theta^i_{23}\end{bmatrix},</script><script type="math/tex; mode=display">r = \frac{1}{\theta^i_{11}\theta^i_{22}  -\theta^i_{12}\theta^i_{21}}​</script><p>IST（inverse spatial transformer）能够根据$T^{-1}_i​$来把残差图转换回注意区域，$T^{-1}_i​$是变换矩阵$T_i​$的逆</p>
+<h3 id="Optimization-amp-Evaluation"><a href="#Optimization-amp-Evaluation" class="headerlink" title="Optimization &amp; Evaluation"></a>Optimization &amp; Evaluation</h3><p>对于图片的预处理视不同的数据集而定，但都需要把所有图片处理成统一的大小。</p>
+<p> 图片$I_i$的ground truth的密度图$D_i$的生成参考了<a href="http://papers.nips.cc/paper/4043-learning-to-count-objects-in-images.pdf" target="_blank" rel="noopener">Learning to count objects in images </a>这篇论文，据作者所说有很好的效果，后续可以进一步研究。</p>
+<p>在训练过程中损失函数定义如下:</p>
+<script type="math/tex; mode=display">Loss = \sum^N_{i=1}\|M^0_i - D_i\|^2 + \sum^N_{i=1}\|M^n_i - D_i\|^2​</script><p>CNN的filter和全连接层的参数通过deviation为0.01的截断正态分布来初始化；初始学习率为$10^{-4}$，并且每1000轮迭代乘以0.98，用以实现学习率衰减；batch size设置为1；使用Adam优化器；RSAR优化迭代次数为30。</p>
+<p>模型的评估方式有两种，平均绝对误差（MAE）和均方误差（MSE）：</p>
+<script type="math/tex; mode=display">MAE = \frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|, MSE = \sqrt{\frac{1}{N}\sum^N_{i=1}\|p_i - \hat{p_i}\|^2}​</script><p>$N$是测试图片总数，$p_i$和$\hat{p_i}$分别是第$i$个图片的ground truth和估计值。</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>作者在<strong>ShanghaiTech</strong>、<strong>UCF CC 50</strong>、<strong>MALL</strong> 、<strong>WorldExpo’10</strong>这4个数据集上都进行了实验，并与已有最佳方法进行了比较，本文这种方法都取得了最优的结果。</p>
+<p>下面这张图以可视化的形式展现了模型的效果：</p>
+<p><img src="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717172248.png" alt></p>
+<p>用初始的密度图$M_0 $估计出的人群数量误差很大，而在经过了迭代优化之后的密度图就可以用来准确地估计人群数量了。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>人群计数是计算机视觉中比较重要的一个问题，具有很高的应用价值。本文提出的Deep Recurrent Spatial-Aware Network利用注意力机制和残差学习对人群密度图的局部区域不断进行迭代优化，最终得到可用于准确人群计数的高质量密度图。我认为本文最大的创新点在于：</p>
+<ol>
+<li>根据LSTM学习长期依赖信息的特点，用LSTM来捕捉密度图的历史信息和行为转换</li>
+<li>引入了变换矩阵$T_i​$，从而使得训练好的模型能够很好地处理人群规模和旋转角度变化的问题</li>
+<li>提出了一个可用作通用框架的密度图优化模块</li>
 </ol>
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://en.wikipedia.org/wiki/Software_engineering" target="_blank" rel="noopener">Software engineering</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Software_crisis" target="_blank" rel="noopener">Software_crisis</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Software_development_process" target="_blank" rel="noopener">Software_development_process</a></p>
-<p><a href="https://www.sebokwiki.org/wiki/An_Overview_of_the_SWEBOK_Guide" target="_blank" rel="noopener">An_Overview_of_the_SWEBOK_Guide</a></p>
+<p>作者计划在未来的研究中把这个模型纳入其他已有的框架中，这有点类似于ELMo这种模型的应用，用以提升下游任务的效果。</p>
 
       
     </div>
@@ -551,12 +478,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/系统分析与设计/" rel="tag"> <i class="fa fa-tag"></i> 系统分析与设计</a>
-          
-        </div>
-      
 
       
       
@@ -566,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/22/CFLP/" rel="next" title="CFLP">
-                <i class="fa fa-chevron-left"></i> CFLP
+              <a href="/2019/06/13/系统分析与设计作业6/" rel="next" title="系统分析与设计作业6">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计作业6
               </a>
             
           </div>
@@ -647,9 +568,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/blog-logo.jpg"
-                alt="Chenf99" />
+              <img class="site-author-image" itemprop="image" src="/images/blog-logo.jpg" alt="Chenf99">
             
               <p class="site-author-name" itemprop="name">Chenf99</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -662,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件的本质与软件工程科学"><span class="nav-number">1.</span> <span class="nav-text">软件的本质与软件工程科学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简答题"><span class="nav-number">1.1.</span> <span class="nav-text">1.简答题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">1.2.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Highlight"><span class="nav-number">1.</span> <span class="nav-text">Highlight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-amp-Challenge"><span class="nav-number">2.</span> <span class="nav-text">Problem &amp; Challenge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">3.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GFE"><span class="nav-number">3.1.</span> <span class="nav-text">GFE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSAR"><span class="nav-number">3.2.</span> <span class="nav-text">RSAR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Attentional-Region-Localization"><span class="nav-number">3.2.1.</span> <span class="nav-text">Attentional Region Localization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Region-Density-Map-Refinement"><span class="nav-number">3.2.2.</span> <span class="nav-text">Region Density Map Refinement</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization-amp-Evaluation"><span class="nav-number">3.3.</span> <span class="nav-text">Optimization &amp; Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">4.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">5.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
@@ -759,7 +678,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本站共计56.4k字</span>
+  <span class="post-count">本站共计64.1k字</span>
 </div>
         
 
@@ -930,7 +849,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '系统分析与设计作业1', 
+            id: '论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network', 
             owner: 'chenf99',
             repo: 'chenf99.github.io',
             
@@ -1291,12 +1210,34 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
 <!-- 代码块复制功能 -->
