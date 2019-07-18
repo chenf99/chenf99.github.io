@@ -86,21 +86,21 @@
 
 
 
-<meta name="description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
+<meta name="description" content="本次夏令营实验室安排的任务是精读并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network">
 <meta property="og:url" content="http://yoursite.com/2019/07/17/Network/index.html">
 <meta property="og:site_name" content="chenf99 blog">
-<meta property="og:description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
+<meta property="og:description" content="本次夏令营实验室安排的任务是精读并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717165326.png">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717155229.png">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717162312.png">
 <meta property="og:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717172248.png">
-<meta property="og:updated_time" content="2019-07-18T08:41:12.051Z">
+<meta property="og:updated_time" content="2019-07-18T08:59:28.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文解读:Crowd Counting using Deep Recurrent Spatial-Aware Network">
-<meta name="twitter:description" content="本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
+<meta name="twitter:description" content="本次夏令营实验室安排的任务是精读并理解IJCAI2018的论文Crowd Counting using Deep Recurrent Spatial-Aware Network，本文记录了我对这篇论文的一些解读 Highlight人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 Deep Recurrent Spatial-Aware">
 <meta name="twitter:image" content="https://chenf99-1257758032.cos.ap-guangzhou.myqcloud.com/img/20190717165326.png">
 
 
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T16:41:12+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T16:59:28+08:00">
                 2019-07-18
               </time>
             
@@ -406,7 +406,7 @@
       
 
       
-        <p>本次夏令营实验室安排的任务是精度并理解IJCAI2018的论文<a href="https://arxiv.org/abs/1807.00601" target="_blank" rel="noopener">Crowd Counting using Deep Recurrent Spatial-Aware Network</a>，本文记录了我对这篇论文的一些解读</p>
+        <p>本次夏令营实验室安排的任务是精读并理解IJCAI2018的论文<a href="https://arxiv.org/abs/1807.00601" target="_blank" rel="noopener">Crowd Counting using Deep Recurrent Spatial-Aware Network</a>，本文记录了我对这篇论文的一些解读</p>
 <h2 id="Highlight"><a href="#Highlight" class="headerlink" title="Highlight"></a>Highlight</h2><p>人群计数是实际应用中一个非常重要的任务，已有的方法不能很好地处理图片中人群的规模和旋转角度变化的问题，本文提出的 <strong>Deep Recurrent Spatial-Aware Network</strong>通过使用可学习的空间变化模块结合区域优化过程，首次解决了旋转角度变化的问题，并取得了很好的效果。相比于已有的最优方法，本文提出的方法在WorldExpo’10和UCF CC 50数据集上的效果都取得了很大的进步。</p>
 <a id="more"></a>
 <h2 id="Problem-amp-Challenge"><a href="#Problem-amp-Challenge" class="headerlink" title="Problem &amp; Challenge"></a>Problem &amp; Challenge</h2><p>人群计数即估计拥挤场景中的总人数，这在实际生活中十分重要。比如在一些大型活动中，如果能够准确估计出当前场景中的人群密度，就可以安排相应级别的安保措施，从而避免发生踩踏事故。</p>
